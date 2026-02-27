@@ -32,7 +32,7 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
       "acceptable_iter" => 12,
       "acceptable_constr_viol_tol" => 1e-3,
       "acceptable_compl_inf_tol" => 1e-3,
-      "max_iter" => 100,
+      "max_iter" => 300,
       "constr_viol_tol" => 1e-5,
       "compl_inf_tol" => 1e-4,
       "mu_strategy" => "adaptive",
