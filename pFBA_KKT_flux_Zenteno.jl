@@ -8,7 +8,8 @@
 
 function pFBA_KKT_flux_Zenteno_O2minimal(
     c0;
-    eps_flux::Float64 = 0.0
+    eps_flux::Float64 = 0.0,
+    apply_product_caps::Bool = false
 )
 
   # Estados cineticos de Zenteno: X,N,G,F,E,O2
@@ -32,7 +33,7 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
       "acceptable_iter" => 12,
       "acceptable_constr_viol_tol" => 1e-3,
       "acceptable_compl_inf_tol" => 1e-3,
-      "max_iter" => 300,
+      "max_iter" => 500,
       "constr_viol_tol" => 1e-5,
       "compl_inf_tol" => 1e-4,
       "mu_strategy" => "adaptive",
@@ -132,6 +133,8 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
       smooth_injection(t_loc[i,j], T_INJ_2, DOSE_2, WIDTH_2))
 
   # --- Dynamic macro limits
+    PROD_CAP_ON = apply_product_caps ? 1.0 : 0.0
+    PROD_CAP_BIG = 1e6
   @NLexpressions(m, begin
       vx[i=1:nfe, j=1:ncp],  mu_j[i,j]
 
@@ -154,6 +157,10 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
 
       L_product[k=1:n_prod, i=1:nfe, j=1:ncp],
           IS_ETH_prod[k] * ve[i,j] + IS_OBJ_prod[k] * vx[i,j]
+
+      # Si apply_product_caps=false, se relaja con un limite grande (sin capeo efectivo)
+      L_product_cap[k=1:n_prod, i=1:nfe],
+          L_product[k,i,ncp] + (1.0 - PROD_CAP_ON) * PROD_CAP_BIG
   end)
 
   # --- Objective
@@ -227,7 +234,7 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
 
       # Production bounds (j=ncp)
       v_UB_product[k=1:n_prod, i=1:nfe],
-          v[PRODUCT_IDXS[k],i]*vs[PRODUCT_IDXS[k]] - L_product[k,i,ncp] <= 0
+          v[PRODUCT_IDXS[k],i]*vs[PRODUCT_IDXS[k]] - L_product_cap[k,i] <= 0
 
       # Uptake bounds (j=ncp)
       v_LB_uptake[k=1:n_up, i=1:nfe],
@@ -246,7 +253,7 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
 
       FO4[k=1:n_prod, i=1:nfe],
           FO_prod[k,i] == (v[PRODUCT_IDXS[k],i]*vs[PRODUCT_IDXS[k]] -
-                           L_product[k,i,ncp]) * alpha_prod[k,i]
+                           L_product_cap[k,i]) * alpha_prod[k,i]
   end)
 
   JuMP.optimize!(m)
@@ -267,8 +274,9 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
   hStar   = JuMP.value.(hv[:])
   L_upt_star = JuMP.value.(L_uptake[:,:,ncp])
   L_prod_star = JuMP.value.(L_product[:,:,ncp])
+    L_prod_cap_star = JuMP.value.(L_product_cap[:,:])
   max_upt_viol = maximum(-vStar[UPTAKE_IDXS[k],i] - L_upt_star[k,i] for k in 1:n_up, i in 1:nfe)
-  max_prod_viol = maximum(vStar[PRODUCT_IDXS[k],i] - L_prod_star[k,i] for k in 1:n_prod, i in 1:nfe)
+    max_prod_viol = maximum(vStar[PRODUCT_IDXS[k],i] - L_prod_cap_star[k,i] for k in 1:n_prod, i in 1:nfe)
   diagStar = (
       vx = JuMP.value.(vx[:,ncp]),
       vg = JuMP.value.(vg[:,ncp]),
@@ -277,6 +285,8 @@ function pFBA_KKT_flux_Zenteno_O2minimal(
       ve = JuMP.value.(ve[:,ncp]),
       L_upt = L_upt_star,
       L_prod = L_prod_star,
+    L_prod_cap = L_prod_cap_star,
+    apply_product_caps = apply_product_caps,
       solver = (term=term, primal=prim, dual=dual),
       o2_abs_max = maximum(abs.(vStar[o2,:])),
       max_uptake_violation = max_upt_viol,
