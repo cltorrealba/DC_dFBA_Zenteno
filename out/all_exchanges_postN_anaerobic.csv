@@ -1,0 +1,272 @@
+exchange_id,exchange_name,met_id,formula,flux,lb,ub,direction
+r_1761,ethanol exchange,s_0681,C2H6O,0.6999999999999993,0.0,1000.0,secretion
+r_1672,carbon dioxide exchange,s_0458,CO2,0.6999999999999991,0.0,1000.0,secretion
+r_1709,D-fructose exchange,s_0554,C6H12O6,-0.3499999999999999,-0.9731903944892223,0.0,uptake
+r_4737,ethyl-pyruvate exchange,s_4281,C5H8O3,5.623445987683691e-16,0.0,1000.0,zero
+r_2100,water exchange,s_0805,H2O,5.193659332642987e-16,-1000.0,1000.0,zero
+r_1808,glycerol exchange,s_0766,C3H8O3,-3.4730910009533017e-16,0.0,1000.0,zero
+r_4731,diethyl-succinate exchange,s_4275,C8H14O4,-2.7395043494669087e-16,0.0,1000.0,zero
+r_1832,H+ exchange,s_0796,H,1.8275282808579578e-16,-1000.0,1000.0,zero
+r_4708,hydrogen sulfide exchange,s_4263,HS,-1.6966434980084135e-16,0.0,1000.0,zero
+r_1549,"(R,R)-2,3-butanediol exchange",s_0036,C4H10O2,-1.5543122344752186e-16,0.0,1000.0,zero
+r_1989,oxaloacetate(2-) exchange,s_1272,C4H2O5,1.2632244516931403e-16,0.0,1000.0,zero
+r_1580,2-methylbutanol exchange,s_0170,C5H12O,-1.201473775671836e-16,0.0,1000.0,zero
+r_4645,ethyl octanoate exchange,s_4227,C10H20O2,-1.0132112453938499e-16,0.0,1000.0,zero
+r_1727,decanoate exchange,s_0597,C10H19O2,1.0132112453938494e-16,0.0,1000.0,zero
+r_4514,Gly-Met exchange,s_4085,C7H14N2O3S,8.835078265153011e-17,0.0,1000.0,zero
+r_4497,3-oxalomalate(3-) exchange,s_4137,C6H3O8,8.201624216056044e-17,0.0,1000.0,zero
+r_2055,stearate exchange,s_1450,C18H35O2,-5.2232586102536496e-17,0.0,1000.0,zero
+r_2193,myristate exchange,s_1163,C14H27O2,5.112837458120297e-17,0.0,1000.0,zero
+r_2091,urea exchange,s_1553,CH4N2O,3.830175144266305e-17,0.0,1000.0,zero
+r_4550,L-Methionine S-oxide exchange,s_4176,C5H11NO3S,-1.4233126353319492e-17,0.0,1000.0,zero
+r_4644,ethyl hexanoate exchange,s_4226,C8H16O2,3.1961421663951027e-18,0.0,1000.0,zero
+r_2189,oleate exchange,s_2826,C18H33O2,-2.4800074996327314e-18,-1000.0,0.0,zero
+r_2005,phosphate exchange,s_1324,HO4P,1.1298922654098248e-18,-1000.0,0.0,zero
+r_1683,choline exchange,s_0513,C5H14NO,1.3869565404568739e-19,0.0,1000.0,zero
+r_1814,glycolaldehyde exchange,s_0776,C2H4O2,-5.600835892717374e-32,0.0,1000.0,zero
+r_4518,Met-Ala exchange,s_4143,C8H16N2O3S,2.144544939951436e-32,0.0,1000.0,zero
+r_1542,(1->3)-beta-D-glucan exchange,s_0003,C6H10O5,0.0,0.0,1000.0,zero
+r_1545,(R)-carnitine exchange,s_0022,C7H15NO3,0.0,0.0,1000.0,zero
+r_1546,(R)-lactate exchange,s_0026,C3H5O3,0.0,0.0,1000.0,zero
+r_1547,(R)-mevalonate exchange,s_0029,C6H11O4,0.0,0.0,1000.0,zero
+r_1548,(R)-pantothenate exchange,s_0032,C9H16NO5,0.0,0.0,0.0,zero
+r_1550,(S)-3-methyl-2-oxopentanoate exchange,s_0058,C6H9O3,0.0,0.0,1000.0,zero
+r_1551,(S)-lactate exchange,s_0064,C3H5O3,0.0,0.0,1000.0,zero
+r_1552,(S)-malate exchange,s_0067,C4H4O5,0.0,0.0,1000.0,zero
+r_1553,1-(sn-glycero-3-phospho)-1D-myo-inositol exchange,s_0080,C9H18O11P,0.0,0.0,1000.0,zero
+r_1554,1-acylglycerophosphocholine exchange,s_0084,C9H20NO7PR,0.0,0.0,1000.0,zero
+r_1563,2'-deoxyadenosine exchange,s_0133,C10H13N5O3,0.0,0.0,1000.0,zero
+r_1564,2'-deoxyguanosine exchange,s_0135,C10H13N5O4,0.0,0.0,1000.0,zero
+r_1565,2'-deoxyinosine exchange,s_0137,C10H12N4O4,0.0,0.0,1000.0,zero
+r_1566,2'-deoxyuridine exchange,s_0139,C9H12N2O5,0.0,0.0,1000.0,zero
+r_1572,2-isopropylmalate exchange,s_0163,C7H10O5,0.0,0.0,1000.0,zero
+r_1577,2-methylbutanal exchange,s_0167,C5H10O,0.0,0.0,1000.0,zero
+r_1581,2-methylbutyl acetate exchange,s_0173,C7H14O2,0.0,0.0,1000.0,zero
+r_1586,2-oxoglutarate exchange,s_0181,C5H4O5,0.0,0.0,1000.0,zero
+r_1589,2-phenylethanol exchange,s_0186,C8H10O,0.0,0.0,1000.0,zero
+r_1598,3-methylbutanal exchange,s_0235,C5H10O,0.0,0.0,1000.0,zero
+r_1604,4-aminobenzoate exchange,s_0272,C7H6NO2,0.0,0.0,1000.0,zero
+r_1621,5-aminolevulinate exchange,s_0316,C5H9NO3,0.0,0.0,1000.0,zero
+r_1625,5-formyltetrahydrofolic acid exchange,s_0320,C20H21N7O7,0.0,0.0,1000.0,zero
+r_1627,"7,8-diaminononanoate exchange",s_0342,C9H21N2O2,0.0,0.0,1000.0,zero
+r_1629,8-amino-7-oxononanoate exchange,s_0354,C9H17NO3,0.0,0.0,1000.0,zero
+r_1630,9H-xanthine exchange,s_0358,C5H4N4O2,0.0,0.0,1000.0,zero
+r_1631,acetaldehyde exchange,s_0360,C2H4O,0.0,0.0,1000.0,zero
+r_1634,acetate exchange,s_0364,C2H3O2,0.0,0.0,1000.0,zero
+r_1639,adenine exchange,s_0384,C5H5N5,0.0,0.0,1000.0,zero
+r_1641,"adenosine 3',5'-bismonophosphate exchange",s_0391,C10H11N5O10P2,0.0,0.0,1000.0,zero
+r_1643,adenosine exchange,s_0387,C10H13N5O4,0.0,0.0,1000.0,zero
+r_1648,allantoate exchange,s_0406,C4H7N4O4,0.0,0.0,1000.0,zero
+r_1649,allantoin exchange,s_0408,C4H6N4O3,0.0,0.0,1000.0,zero
+r_1650,trehalose exchange,s_1521,C12H22O11,0.0,0.0,1000.0,zero
+r_1651,alpha-D-glucosamine 6-phosphate exchange,s_0413,C6H13NO8P,0.0,0.0,1000.0,zero
+r_1654,ammonium exchange,s_0420,H4N,0.0,-0.0,0.0,zero
+r_1663,bicarbonate exchange,s_0446,CHO3,0.0,0.0,0.0,zero
+r_1671,biotin exchange,s_0452,C10H15N2O3S,0.0,0.0,0.0,zero
+r_1687,citrate exchange,s_0523,C6H5O7,0.0,0.0,1000.0,zero
+r_1702,cytidine exchange,s_0544,C9H13N3O5,0.0,0.0,1000.0,zero
+r_1705,cytosine exchange,s_0546,C4H5N3O,0.0,0.0,1000.0,zero
+r_1706,D-arabinose exchange,s_0549,C5H10O5,0.0,0.0,1000.0,zero
+r_1710,D-galactose exchange,s_0559,C6H12O6,0.0,0.0,1000.0,zero
+r_1711,D-galacturonate exchange,s_0560,C6H9O7,0.0,0.0,1000.0,zero
+r_1712,D-glucitol exchange,s_0562,C6H14O6,0.0,0.0,1000.0,zero
+r_1714,D-glucose exchange,s_0565,C6H12O6,0.0,-2.1932614400403523,0.0,zero
+r_1715,D-mannose exchange,s_0572,C6H12O6,0.0,0.0,1000.0,zero
+r_1716,D-ribose exchange,s_0576,C5H10O5,0.0,0.0,1000.0,zero
+r_1718,D-xylose exchange,s_0579,C5H10O5,0.0,0.0,1000.0,zero
+r_1730,deoxycytidine exchange,s_0611,C9H13N3O4,0.0,0.0,1000.0,zero
+r_1749,dTTP exchange,s_0651,C10H13N2O14P3,0.0,0.0,1000.0,zero
+r_1753,episterol exchange,s_0659,C28H46O,0.0,0.0,1000.0,zero
+r_1757,ergosterol exchange,s_0668,C28H44O,0.0,-1000.0,0.0,zero
+r_1764,ethanolamine exchange,s_0684,C2H8NO,0.0,0.0,1000.0,zero
+r_1765,ethyl acetate exchange,s_0686,C4H8O2,0.0,0.0,1000.0,zero
+r_1788,fecosterol exchange,s_0702,C28H46O,0.0,0.0,1000.0,zero
+r_1791,FMN exchange,s_0715,C17H18N4O9P,0.0,0.0,1000.0,zero
+r_1792,folic acid exchange,s_0720,C19H17N7O6,0.0,0.0,1000.0,zero
+r_1793,formate exchange,s_0723,CHO2,0.0,0.0,1000.0,zero
+r_1798,fumarate exchange,s_0726,C4H2O4,0.0,0.0,1000.0,zero
+r_1800,gamma-aminobutyrate exchange,s_0736,C4H9NO2,0.0,0.0,0.0,zero
+r_1806,glutathione disulfide exchange,s_0755,C20H30N6O12S2,0.0,0.0,1000.0,zero
+r_1807,glutathione exchange,s_0751,C10H16N3O6S,0.0,0.0,1000.0,zero
+r_1810,L-glycine exchange,s_1004,C2H5NO2,0.0,0.0,0.0,zero
+r_1815,glyoxylate exchange,s_0780,C2HO3,0.0,0.0,1000.0,zero
+r_1818,guanine exchange,s_0788,C5H5N5O,0.0,0.0,1000.0,zero
+r_1820,guanosine exchange,s_0791,C10H13N5O5,0.0,0.0,1000.0,zero
+r_1834,hexadecanal exchange,s_0826,C16H32O,0.0,0.0,1000.0,zero
+r_1841,hypoxanthine exchange,s_0844,C5H4N4O,0.0,0.0,1000.0,zero
+r_1843,indol-3-ylacetaldehyde exchange,s_0851,C10H9NO,0.0,0.0,1000.0,zero
+r_1847,inosine exchange,s_0857,C10H12N4O5,0.0,0.0,1000.0,zero
+r_1861,iron(2+) exchange,s_0925,Fe,0.0,-0.001,0.0,zero
+r_1862,isoamyl acetate exchange,s_0928,C7H14O2,0.0,0.0,1000.0,zero
+r_1865,isoamylol exchange,s_0930,C5H12O,0.0,0.0,1000.0,zero
+r_1866,isobutanol exchange,s_0933,C4H10O,0.0,0.0,1000.0,zero
+r_1867,isobutyl acetate exchange,s_0936,C6H12O2,0.0,0.0,1000.0,zero
+r_1870,isobutyraldehyde exchange,s_0938,C4H8O,0.0,0.0,1000.0,zero
+r_1873,L-alanine exchange,s_0956,C3H7NO2,0.0,-0.0,0.0,zero
+r_1875,L-arabinitol exchange,s_0962,C5H12O5,0.0,0.0,1000.0,zero
+r_1878,L-arabinose exchange,s_0964,C5H10O5,0.0,0.0,1000.0,zero
+r_1879,L-arginine exchange,s_0966,C6H15N4O2,0.0,-0.0,0.0,zero
+r_1880,L-asparagine exchange,s_0970,C4H8N2O3,0.0,0.0,0.0,zero
+r_1881,L-aspartate exchange,s_0974,C4H6NO4,0.0,0.0,0.0,zero
+r_1883,L-cysteine exchange,s_0982,C3H7NO2S,0.0,0.0,0.0,zero
+r_1886,L-glucitol exchange,s_0990,C6H14O6,0.0,0.0,1000.0,zero
+r_1889,L-glutamate exchange,s_0992,C5H8NO4,0.0,-0.0,0.0,zero
+r_1891,L-glutamine exchange,s_1000,C5H10N2O3,0.0,-0.0,0.0,zero
+r_1893,L-histidine exchange,s_1007,C6H9N3O2,0.0,0.0,0.0,zero
+r_1896,L-homoserine exchange,s_1015,C4H9NO3,0.0,0.0,1000.0,zero
+r_1897,L-isoleucine exchange,s_1017,C6H13NO2,0.0,0.0,0.0,zero
+r_1899,L-leucine exchange,s_1022,C6H13NO2,0.0,0.0,0.0,zero
+r_1900,L-lysine exchange,s_1026,C6H15N2O2,0.0,0.0,0.0,zero
+r_1902,L-methionine exchange,s_1030,C5H11NO2S,0.0,0.0,0.0,zero
+r_1903,L-phenylalanine exchange,s_1033,C9H11NO2,0.0,0.0,0.0,zero
+r_1904,L-proline exchange,s_1036,C5H9NO2,0.0,0.0,0.0,zero
+r_1906,L-serine exchange,s_1041,C3H7NO3,0.0,-0.0,0.0,zero
+r_1909,L-sorbose exchange,s_1044,C6H12O6,0.0,0.0,1000.0,zero
+r_1911,L-threonine exchange,s_1046,C4H9NO3,0.0,-0.0,0.0,zero
+r_1912,L-tryptophan exchange,s_1049,C11H12N2O2,0.0,-0.0,0.0,zero
+r_1913,L-tyrosine exchange,s_1052,C9H11NO3,0.0,0.0,0.0,zero
+r_1914,L-valine exchange,s_1057,C5H11NO2,0.0,0.0,0.0,zero
+r_1915,lanosterol exchange,s_1061,C30H50O,0.0,-1000.0,0.0,zero
+r_1916,laurate exchange,s_1067,C12H23O2,0.0,0.0,1000.0,zero
+r_1931,maltose exchange,s_1106,C12H22O11,0.0,0.0,1000.0,zero
+r_1947,myo-inositol exchange,s_1154,C6H12O6,0.0,-0.01,0.0,zero
+r_1952,"N,N'-diformyldityrosine exchange",s_1186,C20H22N2O8,0.0,0.0,1000.0,zero
+r_1967,nicotinate exchange,s_1220,C6H4NO2,0.0,0.0,0.0,zero
+r_1968,NMN exchange,s_1225,C11H14N2O8P,0.0,0.0,1000.0,zero
+r_1984,octanoate exchange,s_1250,C8H15O2,0.0,0.0,1000.0,zero
+r_1987,ornithine exchange,s_1267,C5H13N2O2,0.0,0.0,0.0,zero
+r_1992,oxygen exchange,s_1277,O2,0.0,0.0,0.0,zero
+r_1993,palmitate exchange,s_1288,C16H31O2,0.0,0.0,1000.0,zero
+r_1994,palmitoleate exchange,s_1295,C16H29O2,0.0,-1000.0,0.0,zero
+r_1999,pectin exchange,s_1309,C6H7O6,0.0,0.0,1000.0,zero
+r_2000,phenethyl acetate exchange,s_1317,C10H12O2,0.0,0.0,1000.0,zero
+r_2001,phenylacetaldehyde exchange,s_1319,C8H8O,0.0,0.0,1000.0,zero
+r_2020,potassium exchange,s_1374,K,0.0,-0.001,0.0,zero
+r_2024,putrescine exchange,s_1390,C4H14N2,0.0,0.0,1000.0,zero
+r_2028,pyridoxine exchange,s_1397,C8H11NO3,0.0,0.0,0.0,zero
+r_2033,pyruvate exchange,s_1400,C3H3O3,0.0,0.0,1000.0,zero
+r_2038,riboflavin exchange,s_1406,C17H19N4O6,0.0,0.0,0.0,zero
+r_2043,S-adenosyl-L-methionine exchange,s_1418,C15H23N6O5S,0.0,0.0,1000.0,zero
+r_2044,S-methyl-L-methionine exchange,s_1425,C6H14NO2S,0.0,0.0,1000.0,zero
+r_2046,sn-glycero-3-phosphocholine exchange,s_1435,C8H20NO6P,0.0,0.0,1000.0,zero
+r_2049,sodium exchange,s_1438,Na,0.0,-1000.0,1000.0,zero
+r_2051,spermidine exchange,s_1440,C7H22N3,0.0,0.0,1000.0,zero
+r_2052,spermine exchange,s_1443,C10H30N4,0.0,0.0,1000.0,zero
+r_2056,succinate exchange,s_1459,C4H4O4,0.0,0.0,1000.0,zero
+r_2058,sucrose exchange,s_1466,C12H22O11,0.0,0.0,1000.0,zero
+r_2060,sulphate exchange,s_1468,O4S,0.0,-1000.0,0.0,zero
+r_2061,sulphite exchange,s_1470,O3S,0.0,0.0,1000.0,zero
+r_2062,taurine exchange,s_1472,C2H7NO3S,0.0,0.0,1000.0,zero
+r_2066,thiamine(1+) diphosphate(1-) exchange,s_1476,C12H16N4O7P2S,0.0,0.0,1000.0,zero
+r_2067,thiamine(1+) exchange,s_1490,C12H17N4OS,0.0,0.0,0.0,zero
+r_2068,thiamine(1+) monophosphate exchange,s_1498,C12H16N4O4PS,0.0,0.0,1000.0,zero
+r_2073,thymidine exchange,s_1494,C10H14N2O5,0.0,0.0,1000.0,zero
+r_2083,tryptophol exchange,s_1530,C10H11NO,0.0,0.0,1000.0,zero
+r_2090,uracil exchange,s_1551,C4H4N2O2,0.0,0.0,1000.0,zero
+r_2092,uridine exchange,s_1557,C9H12N2O6,0.0,0.0,1000.0,zero
+r_2102,xanthosine exchange,s_1564,C10H12N4O6,0.0,0.0,1000.0,zero
+r_2104,xylitol exchange,s_1567,C5H12O5,0.0,0.0,1000.0,zero
+r_2106,zymosterol exchange,s_1571,C27H44O,0.0,-1000.0,0.0,zero
+r_2134,14-demethyllanosterol exchange,s_2766,C29H48O,0.0,-1000.0,0.0,zero
+r_2137,"ergosta-5,7,22,24(28)-tetraen-3beta-ol exchange",s_2768,C28H42O,0.0,-1000.0,0.0,zero
+r_2187,butyrate exchange,s_2822,C4H7O2,0.0,0.0,1000.0,zero
+r_2188,hexanoate exchange,s_2824,C6H11O2,0.0,0.0,1000.0,zero
+r_4043,raffinose exchange,s_3715,C18H32O16,0.0,0.0,1000.0,zero
+r_4044,melibiose exchange,s_3716,C12H22O11,0.0,0.0,1000.0,zero
+r_4442,cysteamine exchange,s_4074,C2H8NS,0.0,0.0,1000.0,zero
+r_4494,methanol exchange,s_4124,CH4O,0.0,0.0,1000.0,zero
+r_4496,Ala-Gly exchange,s_4170,C5H10N2O3,0.0,0.0,1000.0,zero
+r_4498,6-O-alpha-D-glucopyranosyl-D-fructofuranose exchange,s_4109,C12H22O11,0.0,0.0,1000.0,zero
+r_4499,5-dehydro-D-gluconate exchange,s_4118,C6H9O7,0.0,0.0,1000.0,zero
+r_4500,D-tagatose exchange,s_4130,C6H12O6,0.0,0.0,1000.0,zero
+r_4501,turanose exchange,s_4131,C12H22O11,0.0,0.0,1000.0,zero
+r_4502,D-glucose 6-phosphate exchange,s_4150,C6H11O9P,0.0,0.0,1000.0,zero
+r_4503,alpha-maltotriose exchange,s_4140,C18H32O16,0.0,0.0,1000.0,zero
+r_4504,D-glucose 1-phosphate exchange,s_4145,C6H11O9P,0.0,0.0,1000.0,zero
+r_4505,methyl alpha-D-glucopyranoside exchange,s_4125,C7H14O6,0.0,0.0,1000.0,zero
+r_4506,D-Glucosamine exchange,s_4164,C6H14NO5,0.0,0.0,1000.0,zero
+r_4507,glycerone exchange,s_4167,C3H6O3,0.0,0.0,1000.0,zero
+r_4508,Ala-Gln exchange,s_4034,C8H15N3O4,0.0,0.0,1000.0,zero
+r_4509,Ala-Leu exchange,s_4168,C9H18N2O3,0.0,0.0,1000.0,zero
+r_4510,Gly-Gln exchange,s_4056,C7H13N3O4,0.0,0.0,1000.0,zero
+r_4511,Ala-His exchange,s_4050,C9H14N4O3,0.0,0.0,1000.0,zero
+r_4512,Gly-Asn exchange,s_4053,C6H11N3O4,0.0,0.0,1000.0,zero
+r_4513,Ala-Glu exchange,s_4037,C8H13N2O5,0.0,0.0,1000.0,zero
+r_4515,Ala-Asp exchange,s_4119,C7H11N2O5,0.0,0.0,1000.0,zero
+r_4516,Gly-Glu exchange,s_4059,C7H11N2O5,0.0,0.0,1000.0,zero
+r_4517,Ala-Thr exchange,s_4040,C7H14N2O4,0.0,0.0,1000.0,zero
+r_4519,L-citrulline exchange,s_4166,C6H13N3O3,0.0,0.0,1000.0,zero
+r_4520,2-aminobutanoate exchange,s_4080,C4H9NO2,0.0,0.0,1000.0,zero
+r_4521,choline phosphate exchange,s_4158,C5H13NO4P,0.0,0.0,1000.0,zero
+r_4522,glycerol 1-phosphate exchange,s_4049,C3H7O6P,0.0,0.0,1000.0,zero
+r_4523,2-phospho-D-glyceric acid exchange,s_4141,C3H4O7P,0.0,0.0,1000.0,zero
+r_4524,GMP exchange,s_4148,C10H12N5O8P,0.0,0.0,1000.0,zero
+r_4525,3-phospho-serine exchange,s_4147,C3H6NO6P,0.0,0.0,1000.0,zero
+r_4526,O-phosphonatooxy-D-serine(2-) exchange,s_4078,C3H6NO6P,0.0,0.0,1000.0,zero
+r_4527,diphosphate exchange,s_4157,HO7P2,0.0,0.0,1000.0,zero
+r_4528,triphosphate exchange,s_4099,O10P3,0.0,0.0,1000.0,zero
+r_4529,phosphoenolpyruvate exchange,s_4152,C3H2O6P,0.0,0.0,1000.0,zero
+r_4530,N(omega)-phospho-L-arginine exchange,s_4093,C6H14N4O5P,0.0,0.0,1000.0,zero
+r_4531,carbamoyl phosphate exchange,s_4146,CH2NO5P,0.0,0.0,1000.0,zero
+r_4532,O-phosphoethanolamine exchange,s_4154,C2H7NO4P,0.0,0.0,1000.0,zero
+r_4533,cysteamine S-phosphate exchange,s_4075,C2H7NO3PS,0.0,0.0,1000.0,zero
+r_4534,guanosine 2'-monophosphate exchange,s_4067,C10H12N5O8P,0.0,0.0,1000.0,zero
+r_4535,glycerol 2-phosphate(2-) exchange,s_4063,C3H7O6P,0.0,0.0,1000.0,zero
+r_4536,3'-GMP exchange,s_4069,C10H12N5O8P,0.0,0.0,1000.0,zero
+r_4537,2-phosphoglycolate exchange,s_4070,C2H2O6P,0.0,0.0,1000.0,zero
+r_4538,6-phospho-D-gluconate exchange,s_4155,C6H10O10P,0.0,0.0,1000.0,zero
+r_4539,D-mannose 6-phosphate exchange,s_4153,C6H11O9P,0.0,0.0,1000.0,zero
+r_4540,"2',3'-cyclic GMP exchange",s_4095,C10H11N5O7P,0.0,0.0,1000.0,zero
+r_4541,O(4)-phospho-L-tyrosine exchange,s_4097,C9H10NO6P,0.0,0.0,1000.0,zero
+r_4542,O-phospho-L-threonine exchange,s_4065,C4H8NO6P,0.0,0.0,1000.0,zero
+r_4543,3-phosphonato-D-glycerate(3-) exchange,s_4142,C3H4O7P,0.0,0.0,1000.0,zero
+r_4544,adenosine 2'-phosphate exchange,s_4162,C10H12N5O7P,0.0,0.0,1000.0,zero
+r_4545,3'-AMP exchange,s_4107,C10H12N5O7P,0.0,0.0,1000.0,zero
+r_4546,"2',3'-cyclic AMP exchange",s_4161,C10H11N5O6P,0.0,0.0,1000.0,zero
+r_4547,D-mannose 1-phosphate exchange,s_4156,C6H11O9P,0.0,0.0,1000.0,zero
+r_4548,AMP exchange,s_4160,C10H12N5O7P,0.0,0.0,1000.0,zero
+r_4549,N(alpha)-acetyl-L-methionine exchange,s_4135,C7H12NO3S,0.0,0.0,1000.0,zero
+r_4551,3-sulfino-L-alanine exchange,s_4105,C3H6NO4S,0.0,0.0,1000.0,zero
+r_4552,N-acetyl-L-cysteine exchange,s_4111,C5H8NO3S,0.0,0.0,1000.0,zero
+r_4553,L-cysteate exchange,s_4139,C3H6NO5S,0.0,0.0,1000.0,zero
+r_4554,2-hydroxyethane-1-sulfonate exchange,s_4116,C2H5O4S,0.0,0.0,1000.0,zero
+r_4555,acetoacetate exchange,s_4133,C4H5O3,0.0,0.0,1000.0,zero
+r_4556,N-acetyl-L-glutamate exchange,s_4172,C7H9NO5,0.0,0.0,1000.0,zero
+r_4557,UMP exchange,s_4151,C9H11N2O9P,0.0,0.0,1000.0,zero
+r_4558,CMP exchange,s_4163,C9H12N3O8P,0.0,0.0,1000.0,zero
+r_4559,thymidine 5'-monophosphate exchange,s_4047,C10H13N2O8P,0.0,0.0,1000.0,zero
+r_4560,thymidine 3'-monophosphate exchange,s_4045,C10H13N2O8P,0.0,0.0,1000.0,zero
+r_4561,cytidine 2'-phosphate exchange,s_4101,C9H12N3O8P,0.0,0.0,1000.0,zero
+r_4562,uridine 2'-phosphate exchange,s_4082,C9H11N2O9P,0.0,0.0,1000.0,zero
+r_4563,3'-UMP exchange,s_4084,C9H11N2O9P,0.0,0.0,1000.0,zero
+r_4564,"2',3'-cyclic CMP exchange",s_4127,C9H11N3O7P,0.0,0.0,1000.0,zero
+r_4565,"2',3'-cyclic UMP exchange",s_4103,C9H10N2O8P,0.0,0.0,1000.0,zero
+r_4593,chloride exchange,s_4200,Cl,0.0,-0.001,0.0,zero
+r_4594,Cu2(+) exchange,s_4201,Cu,0.0,-0.001,0.0,zero
+r_4595,Mn(2+) exchange,s_4202,Mn,0.0,-0.001,0.0,zero
+r_4596,Zn(2+) exchange,s_4203,Zn,0.0,-0.001,0.0,zero
+r_4597,Mg(2+) exchange,s_4204,Mg,0.0,-0.001,0.0,zero
+r_4600,Ca(2+) exchange,s_4199,Ca,0.0,-0.001,0.0,zero
+r_4646,ethyl butanoate exchange,s_4228,C6H12O2,0.0,0.0,1000.0,zero
+r_4647,hexyl acetate exchange,s_4229,C8H16O2,0.0,0.0,1000.0,zero
+r_4648,ethyl decanoate exchange,s_4230,C12H24O2,0.0,0.0,1000.0,zero
+r_4658,propanal exchange,s_4236,C3H6O,0.0,0.0,1000.0,zero
+r_4659,propanol exchange,s_4237,C3H8O,0.0,0.0,1000.0,zero
+r_4667,methional exchange,s_4242,C4H8OS,0.0,0.0,1000.0,zero
+r_4668,methionol exchange,s_4243,C4H10OS,0.0,0.0,1000.0,zero
+r_4676,(4-hydroxyphenyl)acetaldehyde exchange,s_4248,C8H8O2,0.0,0.0,1000.0,zero
+r_4677,tyrosol exchange,s_4249,C8H10O2,0.0,0.0,1000.0,zero
+r_4689,tyrosyl acetate exchange,s_4255,C10H12O3,0.0,0.0,1000.0,zero
+r_4692,methionyl acetate exchange,s_4257,C6H12O2S,0.0,0.0,1000.0,zero
+r_4695,propyl acetate exchange,s_4259,C5H10O2,0.0,0.0,1000.0,zero
+r_4699,ethyl propionate exchange,s_4262,C5H10O2,0.0,0.0,1000.0,zero
+r_4709,alkanesulfonate exchange,s_4266,CH3O3SR,0.0,0.0,1000.0,zero
+r_4710,taurocholate exchange,s_4268,C26H45NO7S,0.0,0.0,1000.0,zero
+r_4727,ethyl-(2S)-lactate exchange,s_4270,C5H10O3,0.0,0.0,1000.0,zero
+r_4729,ethyl-(2R)-lactate exchange,s_4272,C5H10O3,0.0,0.0,1000.0,zero
+r_4733,monoethyl-succinate exchange,s_4277,C6H9O4,0.0,0.0,1000.0,zero
+r_4735,ethyl-benzoate exchange,s_4279,C9H10O2,0.0,0.0,1000.0,zero
+r_4739,benzyl-acetate exchange,s_4289,C9H10O2,0.0,0.0,1000.0,zero
+r_4741,ethyl-isobutyrate exchange,s_4287,C6H12O2,0.0,0.0,1000.0,zero
+r_4743,ethyl-2-methylbutyrate exchange,s_4284,C7H14O2,0.0,0.0,1000.0,zero
+r_4780,heme a exchange,s_4332,C49H55FeN4O6,0.0,0.0,1000.0,zero
