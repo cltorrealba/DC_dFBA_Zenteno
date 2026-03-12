@@ -1,0 +1,6 @@
+aa,exchange_rxn,exchange_name,turnover_cap_mmol_gDW_h,base_flux_mmol_gDW_h,base_uptake_mmol_gDW_h,max_feasible_uptake_mmol_gDW_h,exchange_reduced_cost,exchange_met_id,exchange_met_name,exchange_met_shadow_price
+leu,r_1897,L-isoleucine exchange,0.005614274410122685,0.0,0.0,0.0,3.670418499602839e-17,s_1017,L-isoleucine,1.8352092498014195e-17
+met,r_1902,L-methionine exchange,0.005614274410122685,0.0,0.0,0.0,-0.22222222222222235,s_1030,L-methionine,-0.11111111111111117
+phe,r_1903,L-phenylalanine exchange,0.005614274410122685,0.0,0.0,0.0,0.22222222222222213,s_1033,L-phenylalanine,0.11111111111111106
+tyr,r_1913,L-tyrosine exchange,0.005614274410122685,0.0,0.0,0.0,3.6704184996028395e-17,s_1052,L-tyrosine,1.8352092498014198e-17
+val,r_1914,L-valine exchange,0.005614274410122685,0.0,0.0,0.0,-0.44444444444444375,s_1057,L-valine,-0.22222222222222188
