@@ -1,0 +1,3 @@
+aroma,rid,rxn_name,final_ref_mg_L,final_max_mg_L,peak_flux_ref_mmol_gDW_h,peak_flux_max_mmol_gDW_h
+methionol,r_4668,methionol exchange,0.0,3.2837916733525874,0.0,0.0019748607142043018
+isoamyl,r_1862,isoamyl acetate exchange,0.0,4470.972004591195,0.0,0.45279773248478816
