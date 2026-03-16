@@ -1,0 +1,12 @@
+*.jl.cov
+*.jl.mem
+deps/deps.jl
+deps/downloads
+deps/usr
+deps/src
+deps/build.log
+Manifest.toml
+docs/Manifest.toml
+gen/symbols_libhsl.txt
+gen/symbols_libhsl_subset.txt
+gen/symbols_libhsl_subset_64.txt

@@ -1,0 +1,7 @@
+ester_rid,ester_label,alcohol_rid,alcohol_name,n_hits,top_match
+r_1765,ethyl acetate exchange,r_1761,ethanol exchange,1,manual
+r_1867,isobutyl acetate exchange,r_1866,isobutanol exchange,1,manual
+r_1862,isoamyl acetate exchange,r_1862,isoamyl acetate exchange,1,manual
+r_2000,phenethyl acetate exchange,r_1589,2-phenylethanol exchange,1,manual
+r_4647,hexyl acetate exchange,,,0,
+r_4739,benzyl-acetate exchange,,,0,
