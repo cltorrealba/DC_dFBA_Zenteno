@@ -1,0 +1,10 @@
+reaction_id,reaction_name,index_1based,N_atoms,N_frac_share
+r_1654,ammonium exchange,1127,1.0,24.987506246876563
+r_1879,L-arginine exchange,1321,4.0,3.5696437495537947
+r_1891,L-glutamine exchange,1332,2.0,3.5696437495537947
+r_1889,L-glutamate exchange,1330,1.0,3.5696437495537947
+r_1906,L-serine exchange,1346,1.0,3.5696437495537947
+r_1911,L-threonine exchange,1351,1.0,3.5696437495537947
+r_1873,L-alanine exchange,1315,1.0,3.5696437495537947
+r_1912,L-tryptophan exchange,1352,2.0,3.5696437495537947
+r_1899,L-leucine exchange,1339,1.0,3.5696437495537947

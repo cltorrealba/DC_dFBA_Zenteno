@@ -1,0 +1,19 @@
+state_index,state_name,description,unit,initial_value
+1,X,Biomass,gDW/L,0.5
+2,N_free,Free nitrogen (NH4+),gN/L,0.07
+3,G,Glucose,g/L,110.0
+4,F,Fructose,g/L,110.0
+5,E,Ethanol,g/L,0.0
+6,O2,Dissolved oxygen,g/L,0.0
+7,Prot,Intracellular protein,g/L,0.23
+8,Carb,Intracellular carbohydrate,g/L,0.185
+9,AA_phe,Amino acid phe in medium,mmol/L,0.9995002498750626
+10,AA_leu,Amino acid leu in medium,mmol/L,0.9995002498750626
+11,AA_val,Amino acid val in medium,mmol/L,0.9995002498750626
+12,AA_met,Amino acid met in medium,mmol/L,0.9995002498750626
+13,AA_tyr,Amino acid tyr in medium,mmol/L,0.9995002498750626
+14,Aroma_pea,Higher alcohol pea,g/L,0.0
+15,Aroma_isoamyl,Higher alcohol isoamyl,g/L,0.0
+16,Aroma_isobutanol,Higher alcohol isobutanol,g/L,0.0
+17,Aroma_methionol,Higher alcohol methionol,g/L,0.0
+18,Aroma_tyrosol,Higher alcohol tyrosol,g/L,0.0

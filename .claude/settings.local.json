@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import json; nb=json.load\\(open\\('01_preparacion_modelo_cobrapy.ipynb',encoding='utf-8'\\)\\); print\\(len\\(nb['cells']\\)\\)\")",
+      "Read(//usr/**)",
+      "Read(//usr/local/**)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/Microsoft/WindowsApps/python3 -c \"import json; nb=json.load\\(open\\('01_preparacion_modelo_cobrapy.ipynb',encoding='utf-8'\\)\\); print\\(len\\(nb['cells']\\)\\)\")",
+      "Read(//c/Users/ctorrealba/AppData/Local/Programs/**)",
+      "Bash(ls \"/c/Python\"*)",
+      "Read(//c/Users/ctorrealba/**)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe -c 'import json; nb=json.load\\(open\\('\\\\''/c/Users/ctorrealba/OneDrive - Viña Concha y Toro S.A/Documentos/Doctorado/Artículos/Artículo - Estimación_dFBA/DC_dFBA_Zenteno/01_preparacion_modelo_cobrapy.ipynb'\\\\'',encoding='\\\\''utf-8'\\\\''\\)\\); print\\('\\\\''Total cells:'\\\\'', len\\(nb['\\\\''cells'\\\\'']\\)\\)')",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe -c ':*)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/read_nb.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/read_nb2_core.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/read_jl.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/read_jl2.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/read_nb1_rest.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/get_cell_ids.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/get_nb1_cell44.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/get_cell45.py)",
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/verify_patch.py)"
+    ]
+  }
+}

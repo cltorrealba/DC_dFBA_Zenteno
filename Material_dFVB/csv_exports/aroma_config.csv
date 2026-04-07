@@ -1,0 +1,6 @@
+aroma_key,reaction_id,reaction_name,index_1based,MW_g_per_mmol
+pea,r_1589,2-phenylethanol exchange,1071,0.12217
+isoamyl,r_1862,isoamyl acetate exchange,1304,0.08815
+isobutanol,r_1866,isobutanol exchange,1308,0.07412
+methionol,r_4668,methionol exchange,4018,0.10619
+tyrosol,r_4677,tyrosol exchange,4027,0.13816

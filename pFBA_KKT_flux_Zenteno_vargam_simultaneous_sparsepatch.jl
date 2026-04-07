@@ -137,6 +137,8 @@ end
 function _build_ipopt_attributes()
     requested_solver = lowercase(String(IPOPT_LINEAR_SOLVER))
     active_solver, hsl_lib_path, hsl_functional = _configure_ipopt_linear_solver(requested_solver)
+    use_dual_warm_start = lowercase(get(ENV, "IPOPT_USE_DUAL_WARM_START", "false")) in ("1", "true", "yes", "on")
+    warm_start_init_point = lowercase(get(ENV, "IPOPT_WARM_START_INIT_POINT", "yes")) in ("1", "true", "yes", "on") ? "yes" : "no"
 
     attrs = Pair{String,Any}[
         "linear_solver" => active_solver,
@@ -151,7 +153,7 @@ function _build_ipopt_attributes()
         "constr_viol_tol" => IPOPT_CONSTR_VIOL_TOL,
         "compl_inf_tol" => IPOPT_COMPL_INF_TOL,
         "bound_relax_factor" => 1e-8,
-        "warm_start_init_point" => "yes",
+        "warm_start_init_point" => warm_start_init_point,
         "mumps_mem_percent" => try parse(Int, get(ENV, "IPOPT_MUMPS_MEM_PERCENT", "20")) catch; 20 end,
     ]
 
@@ -160,6 +162,7 @@ function _build_ipopt_attributes()
     end
 
     println("[ipopt] linear_solver requested=", requested_solver, " active=", active_solver, " hsl_ready=", hsl_functional)
+    println("[ipopt] dual_warm_start=", use_dual_warm_start, " | warm_start_init_point=", warm_start_init_point)
     hsl_lib_path !== nothing && println("[ipopt] hsllib = ", hsl_lib_path)
 
     return attrs
@@ -169,6 +172,21 @@ function pFBA_KKT_flux_Zenteno_vargam_simultaneous(
     c0;
     eps_flux::Float64 = 0.0,
     apply_product_caps::Bool = false,
+    # ── primal ──────────────────────────────────────────────────────────────
+    warm_c::Union{Nothing, Array{Float64,3}} = nothing,
+    warm_v::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_h::Union{Nothing, Vector{Float64}} = nothing,
+    warm_cdot::Union{Nothing, Array{Float64,3}} = nothing,
+    # ── dual / Lagrange multipliers ─────────────────────────────────────────
+    warm_lambda::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alL::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alU::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alupt::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alprod::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alaa::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alpair::Union{Nothing, Matrix{Float64}} = nothing,
+    warm_alea::Union{Nothing, Vector{Float64}} = nothing,
+    warm_alatpm::Union{Nothing, Vector{Float64}} = nothing,
 )
     @assert length(c0) == nc "c0 debe tener longitud nc."
     @assert nc >= 8 "Este modelo simultáneo asume al menos 8 estados base."
@@ -286,16 +304,112 @@ function pFBA_KKT_flux_Zenteno_vargam_simultaneous(
     end)
 
     # ---------- starts ----------
+    # IMPORTANTE: warm_c y warm_v deben estar en ESCALA INTERNA del modelo (divididas por cs/vs)
+    _use_wc = (warm_c !== nothing) && size(warm_c) == (nc, nfe, ncp)
+    _use_wv = (warm_v !== nothing) && size(warm_v) == (nv, nfe)
+    _use_wh = (warm_h !== nothing) && length(warm_h) == nfe
+    if any((_use_wc, _use_wv, _use_wh))
+        println("[WS] Warm start aplicado: c=$(_use_wc), v=$(_use_wv), h=$(_use_wh)")
+        if _use_wc
+            c_sample = warm_c[1,1,1]
+            c_ref = c0[1] / cs[1]
+            c_ratio = c_sample > 0 ? c_sample / max(c_ref, 1e-9) : 1.0
+            if c_ratio > 2.0 || c_ratio < 0.5
+                @warn "[WS] Escala de warm_c parece incorrecta (ratio vs default=$c_ratio). Asegurate de que warm_c esté dividido por cs."
+            end
+        end
+        if _use_wv
+            v_sample = warm_v[max(1, nv÷2), 1]
+            v_ref = 0.0
+            if abs(v_sample) > max(maximum(abs.(vub)), maximum(abs.(vlb))) * 0.1
+                @warn "[WS] Escala de warm_v parece anómala. Asegurate de que warm_v esté dividido por vs."
+            end
+        end
+    end
+
     for i in 1:nfe
-        set_start_value(hv[i], hm[i])
+        set_start_value(hv[i], _use_wh ? warm_h[i] : hm[i])
         for j in 1:ncp
             for s in 1:nc
-                set_start_value(c[s, i, j], c0[s] / cs[s])
+                set_start_value(c[s, i, j], _use_wc ? warm_c[s, i, j] : c0[s] / cs[s])
             end
         end
         for rx in 1:nv
-            set_start_value(v[rx, i], 0.0)
+            set_start_value(v[rx, i], _use_wv ? warm_v[rx, i] : 0.0)
         end
+    end
+
+    # ----- derivative warm start (cdot) -----
+    # IMPORTANTE: warm_cdot debe estar en ESCALA INTERNA (d/dt de c escalado, SIN dividir por cs)
+    if warm_cdot !== nothing && size(warm_cdot) == (nc, nfe, ncp)
+        for i in 1:nfe, j in 1:ncp, s in 1:nc
+            set_start_value(cdot[s, i, j], warm_cdot[s, i, j])
+        end
+    end
+
+    # ----- dual / multiplier warm starts -----
+    use_dual_warm_start = lowercase(get(ENV, "IPOPT_USE_DUAL_WARM_START", "false")) in ("1", "true", "yes", "on")
+    if use_dual_warm_start
+        if warm_lambda !== nothing && size(warm_lambda) == (nm, nfe)
+            for i in 1:nfe, r in 1:nm
+                set_start_value(lambda_[r, i], warm_lambda[r, i])
+            end
+        end
+        if warm_alL !== nothing && size(warm_alL) == (nv, nfe)
+            for i in 1:nfe, mc in 1:nv
+                set_start_value(alpha_L[mc, i], min(0.0, warm_alL[mc, i]))
+            end
+        end
+        if warm_alU !== nothing && size(warm_alU) == (nv, nfe)
+            for i in 1:nfe, mc in 1:nv
+                set_start_value(alpha_U[mc, i], max(0.0, warm_alU[mc, i]))
+            end
+        end
+        if N_UP > 0 && warm_alupt !== nothing && size(warm_alupt) == (N_UP, nfe)
+            for i in 1:nfe, k in 1:N_UP
+                set_start_value(alpha_upt[k, i], min(0.0, warm_alupt[k, i]))
+            end
+        end
+        if N_PROD > 0 && warm_alprod !== nothing && size(warm_alprod) == (N_PROD, nfe)
+            for i in 1:nfe, k in 1:N_PROD
+                set_start_value(alpha_prod[k, i], max(0.0, warm_alprod[k, i]))
+            end
+        end
+        if N_AA > 0 && warm_alaa !== nothing && size(warm_alaa) == (N_AA, nfe)
+            for i in 1:nfe, a in 1:N_AA
+                set_start_value(alpha_aa[a, i], min(0.0, warm_alaa[a, i]))
+            end
+        end
+        if N_PAIR > 0 && warm_alpair !== nothing && size(warm_alpair) == (N_PAIR, nfe)
+            for i in 1:nfe, p in 1:N_PAIR
+                set_start_value(alpha_pair[p, i], max(0.0, warm_alpair[p, i]))
+            end
+        end
+        if warm_alea !== nothing && length(warm_alea) == nfe
+            for i in 1:nfe
+                set_start_value(alpha_ea[i], max(0.0, warm_alea[i]))
+            end
+        end
+        if warm_alatpm !== nothing && length(warm_alatpm) == nfe
+            for i in 1:nfe
+                set_start_value(alpha_atpm_floor[i], max(0.0, warm_alatpm[i]))
+            end
+        end
+        let _ws_dual = String[]
+            warm_cdot   !== nothing && push!(_ws_dual, "cdot")
+            warm_lambda !== nothing && push!(_ws_dual, "\u03bb")
+            warm_alL    !== nothing && push!(_ws_dual, "\u03b1L")
+            warm_alU    !== nothing && push!(_ws_dual, "\u03b1U")
+            warm_alupt  !== nothing && push!(_ws_dual, "\u03b1UPT")
+            warm_alprod !== nothing && push!(_ws_dual, "\u03b1PROD")
+            warm_alaa   !== nothing && push!(_ws_dual, "\u03b1AA")
+            warm_alpair !== nothing && push!(_ws_dual, "\u03b1PAIR")
+            warm_alea   !== nothing && push!(_ws_dual, "\u03b1EA")
+            warm_alatpm !== nothing && push!(_ws_dual, "\u03b1ATPM")
+            !isempty(_ws_dual) && println("[WS] Dual/derivadas: ", join(_ws_dual, ", "))
+        end
+    else
+        println("[WS] Dual warm-start desactivado (IPOPT_USE_DUAL_WARM_START=false).")
     end
 
     c0s = [c0[i] / cs[i] for i in 1:nc]

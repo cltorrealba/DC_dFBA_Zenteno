@@ -1,0 +1,136 @@
+{
+  "timestamp": "2026-03-18T16:51:26.038738",
+  "parameter_set": "paper2010",
+  "model_file": "out\\model_ready.xml",
+  "nfe": 18,
+  "ncp": 3,
+  "th_h": 72.0,
+  "nc": 18,
+  "nv": 4131,
+  "nm": 2806,
+  "indices": {
+    "IDX_OBJ": 1500,
+    "IDX_ATPM": 3411,
+    "IDX_PROT_RXN": 3412,
+    "OBJ_ID": "r_2111",
+    "ATPM_ID": "r_4046",
+    "PROT_RXN_ID": "r_4047"
+  },
+  "kinetic_params": {
+    "MU0": 0.18,
+    "YXN": 19.69,
+    "YXG": 1.6,
+    "YXF": 1.6,
+    "YEG": 0.49,
+    "YEF": 0.49,
+    "Kn0": 0.01,
+    "Kg0": 7.5,
+    "Kf0": 7.5,
+    "Kig0": 55.0,
+    "Kie0": 40.0,
+    "Kd0": 0.00044,
+    "betaG0": 0.225,
+    "betaF0": 0.225
+  },
+  "composition_params": {
+    "PROT_CONTENT_0": 0.46,
+    "CARB_CONTENT_0": 0.37,
+    "RNA_FRAC": 0.06,
+    "Pbase": 0.5362040755378178,
+    "Rbase": 0.06442606183681487,
+    "Cbase": 0.4203958917,
+    "XA_FRACTION": 1.0,
+    "TURNOVER_LAMBDA": 0.03,
+    "K_DEATH": 0.005,
+    "K_AA_UPTAKE_GROWTH": 0.08
+  },
+  "sets": {
+    "AA_KEYS": [
+      "leu",
+      "met",
+      "phe",
+      "tyr",
+      "val"
+    ],
+    "AROMA_KEYS": [
+      "isoamyl",
+      "isobutanol",
+      "methionol",
+      "pea",
+      "tyrosol"
+    ],
+    "AA_EX_IDS": {
+      "phe": "r_1903",
+      "leu": "r_1897",
+      "val": "r_1914",
+      "met": "r_1902",
+      "tyr": "r_1913"
+    },
+    "AROMA_EX_IDS": {
+      "pea": "r_1589",
+      "isoamyl": "r_1862",
+      "isobutanol": "r_1866",
+      "methionol": "r_4668",
+      "tyrosol": "r_4677"
+    },
+    "KINETIC_N_SOURCE_IDS": [
+      "r_1654",
+      "r_1879",
+      "r_1891",
+      "r_1889",
+      "r_1906",
+      "r_1911",
+      "r_1873",
+      "r_1912",
+      "r_1899"
+    ],
+    "PAIRWISE_PHI_STATIC": 0.08,
+    "PHI_ETHYL_ACETATE_STATIC": 0.0001
+  },
+  "phase_schedule": {
+    "N_TOTAL_DEPLETION_THRESHOLD": 0.001,
+    "modes_per_fe": [
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "BIOMASS",
+      "TURNOVER_ATPM",
+      "TURNOVER_ATPM",
+      "TURNOVER_ATPM",
+      "TURNOVER_ATPM",
+      "TURNOVER_ATPM"
+    ]
+  },
+  "GAM_profile": {
+    "GAM_fe": [
+      57.29759167974113,
+      59.71155019884792,
+      61.15514091445629,
+      60.28474748961687,
+      58.521918889428704,
+      56.88768875613924,
+      55.40565156083759,
+      54.06896795699808,
+      52.87002515506093,
+      51.80025239795157,
+      50.850307967708154,
+      50.010394383679944,
+      49.270584860430496,
+      48.49464972760922,
+      47.78173242919854,
+      47.1635048059172,
+      46.627390175173694,
+      46.162482289350464
+    ],
+    "GAM_REF": 53.02025453545255
+  }
+}

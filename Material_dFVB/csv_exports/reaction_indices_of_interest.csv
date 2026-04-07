@@ -1,0 +1,27 @@
+category,label,reaction_id,reaction_name,index_1based,MW_g_per_mmol,N_atoms
+core,OBJ_ID (biomass),r_2111,growth,1500,,
+core,GLU_ID (glucose),r_1714,D-glucose exchange,1180,,
+core,FRU_ID (fructose),r_1709,D-fructose exchange,1175,,
+core,ETH_ID (ethanol),r_1761,ethanol exchange,1221,,
+core,O2_ID (oxygen),r_1992,oxygen exchange,1408,,
+core,ATPM_ID (maintenance),r_4046,non-growth associated maintenance reaction,3411,,
+core,PROT_RXN_ID (protein),r_4047,protein pseudoreaction,3412,,
+aroma,aroma_pea,r_1589,2-phenylethanol exchange,1071,0.12217,
+aroma,aroma_isoamyl,r_1862,isoamyl acetate exchange,1304,0.08815,
+aroma,aroma_isobutanol,r_1866,isobutanol exchange,1308,0.07412,
+aroma,aroma_methionol,r_4668,methionol exchange,4018,0.10619,
+aroma,aroma_tyrosol,r_4677,tyrosol exchange,4027,0.13816,
+aa_precursor,AA_phe,r_1903,L-phenylalanine exchange,1343,0.16519,
+aa_precursor,AA_leu,r_1897,L-isoleucine exchange,1337,0.13117,
+aa_precursor,AA_val,r_1914,L-valine exchange,1354,0.11715,
+aa_precursor,AA_met,r_1902,L-methionine exchange,1342,0.14921,
+aa_precursor,AA_tyr,r_1913,L-tyrosine exchange,1353,0.18119,
+nitrogen_source,N_source_r_1654,r_1654,ammonium exchange,1127,,1.0
+nitrogen_source,N_source_r_1879,r_1879,L-arginine exchange,1321,,4.0
+nitrogen_source,N_source_r_1891,r_1891,L-glutamine exchange,1332,,2.0
+nitrogen_source,N_source_r_1889,r_1889,L-glutamate exchange,1330,,1.0
+nitrogen_source,N_source_r_1906,r_1906,L-serine exchange,1346,,1.0
+nitrogen_source,N_source_r_1911,r_1911,L-threonine exchange,1351,,1.0
+nitrogen_source,N_source_r_1873,r_1873,L-alanine exchange,1315,,1.0
+nitrogen_source,N_source_r_1912,r_1912,L-tryptophan exchange,1352,,2.0
+nitrogen_source,N_source_r_1899,r_1899,L-leucine exchange,1339,,1.0

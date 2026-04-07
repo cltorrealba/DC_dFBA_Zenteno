@@ -1,0 +1,6 @@
+aa_key,reaction_id,reaction_name,index_1based,MW_g_per_mmol,AA_ALPHA
+phe,r_1903,L-phenylalanine exchange,1343,0.16519,0.2
+leu,r_1897,L-isoleucine exchange,1337,0.13117,0.2
+val,r_1914,L-valine exchange,1354,0.11715,0.2
+met,r_1902,L-methionine exchange,1342,0.14921,0.2
+tyr,r_1913,L-tyrosine exchange,1353,0.18119,0.2
