@@ -171,7 +171,7 @@ Kg_T  = KG * exp(Ea_Kg * (1/T_ref - 1/T_sim))
 b_T   = betaE0 * exp(Ea_b * (1/T_ref - 1/T_sim))
 ```
 
-### GAM Variable
+### GAM (Growth-Associated Maintenance) Variable
 
 ```
 fullGAM = 30.49 + 16.965*(P/Pbase) + 1.638*(R/Rbase) + 5.210*Cfactor
@@ -243,7 +243,7 @@ El archivo `dynamic_bounds.csv` documenta cómo cambian los bounds según la fas
 
 ## Notas sobre el Modelo Base
 
-- **Modelo**: yeast-GEM v8.x (archivo `yeast-GEM.xml`)
+- **Modelo**: yeast-GEM v9 (archivo `yeast-GEM.xml`)
 - **~7700 reacciones**, **~3800 metabolitos**
 - Modificaciones aplicadas durante la preparación en Notebook 1 (Python/COBRApy):
   - Cierre de leaks

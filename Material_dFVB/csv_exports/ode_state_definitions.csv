@@ -17,3 +17,4 @@ idx,name,unit,ode_rhs
 16,Aroma_isobutanol,g/L,MW_aroma * v_aroma * X
 17,Aroma_methionol,g/L,MW_aroma * v_aroma * X
 18,Aroma_tyrosol,g/L,MW_aroma * v_aroma * X
+19,Aroma_ethyl_acetate,g/L,MW_aroma * v_aroma * X

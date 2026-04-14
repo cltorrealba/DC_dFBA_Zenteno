@@ -17,3 +17,4 @@ state_index,state_name,description,unit,initial_value
 16,Aroma_isobutanol,Higher alcohol isobutanol,g/L,0.0
 17,Aroma_methionol,Higher alcohol methionol,g/L,0.0
 18,Aroma_tyrosol,Higher alcohol tyrosol,g/L,0.0
+19,Aroma_ethyl_acetate,Higher alcohol ethyl_acetate,g/L,0.0
