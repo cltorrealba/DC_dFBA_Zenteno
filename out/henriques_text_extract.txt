@@ -1,0 +1,1338 @@
+--- PAGE 1 ---
+A Multiphase Multiobjective Dynamic Genome-Scale Model
+Shows Different Redox Balancing among Yeast Species of the
+Saccharomyces Genus in Fermentation
+David Henriques,a Romain Minebois,b Sebastián N. Mendoza,c Laura G. Macías,b Roberto Pérez-Torrado,b Eladio Barrio,d
+Bas Teusink,c
+ Amparo Querol,b Eva Balsa-Cantoa
+a(Bio)process Engineering Group, IIM-CSIC, Vigo, Spain
+bSystems Biology in Yeast of Biotechnological Interest, IATA-CSIC, Paterna, Spain
+cSystems Bioinformatics, Vrije Universiteit Amsterdam, Amsterdam, The Netherlands
+dDepartment of Genetics, University of Valencia, Burjassot, Spain
+ABSTRACT Yeasts constitute over 1,500 species with great potential for biotechnology.
+Still, the yeast Saccharomyces cerevisiaedominates industrial applications, and many alter-
+native physiological capabilities of lesser-known yeasts are not being fully exploited. While
+comparative genomics receives substantial attention, little is known about yeasts’ meta-
+bolic speciﬁcity in batch cultures. Here, we propose a multiphase multiobjective dynamic
+genome-scale model of yeast batch cultures that describes the uptake of carbon and
+nitrogen sources and the production of primary and secondary metabolites. The model
+integrates a speciﬁc metabolic reconstruction, based on the consensus Yeast8, and a ki-
+netic model describing the time-varying culture environment. In addition, we proposed a
+multiphase multiobjectiveﬂux balance analysis to compute the dynamics of intracellular
+ﬂu x e s .W et h e nc o m p a r e dt h em e t a b o l i s mo fS. cerevisiae and Saccharomyces uvarum
+strains in a rich medium fermentation. The model successfully explained the experimental
+data and brought novel insights into how cryotolerant strains achieve redox balance. The
+proposed model (along with the corresponding code) provides a comprehensive picture
+of the main steps occurring inside the cell during batch cultures and offers a systematic
+approach to prospect or metabolically engineering novel yeast cell factories.
+IMPORTANCE Nonconventional yeast species hold the promise to provide novel met-
+abolic routes to produce industrially relevant compounds and tolerate speci ﬁc stres-
+sors, such as cold temperatures. This work validated the ﬁrst multiphase multiobjec-
+tive genome-scale dynamic model to describe carbon and nitrogen metabolism
+throughout batch fermentation. To test and illustrate its performance, we considered
+the comparative metabolism of three yeast strains of the Saccharomyces genus in
+rich medium fermentation. The study revealed that cryotolerant Saccharomyces spe-
+cies might use the
+g-aminobutyric acid (GABA) shunt and the production of reducing
+equivalents as alternative routes to achieve redox balance, a novel biological insight
+worth being explored further. The proposed model (along with the provided code)
+can be applied to a wide range of batch processes started with different yeast spe-
+cies and media, offering a systematic and rational approach to prospect nonconven-
+tional yeast species metabolism and engineering novel cell factories.
+KEYWORDS batch fermentation, Saccharomyces species, cryotolerant species, dynamic
+genome-scale models, redox balance
+Y
+easts have been used to produce fermented foods and beverages for millennia and are
+among the most frequently used microorganisms in biotechnology.Saccharomyces cere-
+visiae dominates the scene and many research efforts focus on engineering this species for
+Citation Henriques D, Minebois R, Mendoza
+SN, Macías LG, Pérez-Torrado R, Barrio E,
+Teusink B, Querol A, Balsa-Canto E. 2021. A
+multiphase multiobjective dynamic genome-
+scale model shows different redox balancing
+among yeast species of the Saccharomyces
+genus in fermentation. mSystems 6:e00260-21.
+https://doi.org/10.1128/mSystems.00260-21.
+Editor Domitilla Del Vecchio, MIT
+Copyright © 2021 Henriques et al. This is an
+open-access article distributed under the terms
+of the Creative Commons Attribution 4.0
+International license.
+Address correspondence to David Henriques,
+davidh@iim.csic.es, or Eva Balsa-Canto,
+ebalsa@iim.csic.es.
+Received 6 March 2021
+Accepted 12 July 2021
+Published 
+July/August 2021 Volume 6 Issue 4 e00260-21
+msystems.asm.org 1
+RESEARCH ARTICLE
+3 August 2021
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 2 ---
+particular applications (for examples, see references 1 to 4). Nowadays it is used to produce
+glycerol (5), biopharmaceutical proteins (6), or secondary metabolites, such as aromas or bio-
+ﬂavors (7, 8).
+However, yeasts constitute a large group of 1,500 (so far) described species, and
+much less attention has been paid to nonconventional yeasts. These species remain a
+mostly untapped resource of alternative metabolic routes for substrate use and prod-
+uct formation as well as tolerances to speci ﬁc stressors (9, 10). To exploit these alterna-
+tives ef ﬁciently, it is essential to understand the metabolic pathways of these species.
+Given the complexity of the endeavor, a modeling approach becomes indispensable.
+Genome-scale models (GEMs) can contextualize high-throughput data and predict
+genotype-environment-phenotype relationships (11, 12). While GEMs have been widely used
+for the study and metabolic engineering ofS. cerevisiaestrains in continuous (steady-state) fer-
+mentations (13), their use to predict batch (dynamic) fermentation is still scarce. Nevertheless,
+many yeast-based processes operate in batch mode.
+In batch operation, cell culture follows a growth curve with the following phases: lag
+phase, exponential growth, growth under nutrient limitation, stationary phase, and cellu-
+lar decay. Available dynamic GEMs of yeast metabolism focus on the exponential phase
+and explain reasonably well the measured dynamics of biomass growth, carbon source
+uptake, and the production of relevant primary metabolites (14 –17). The development
+of GEMs that describe the ﬁve phases of batch processes, considering carbon and nitro-
+gen metabolism throughout time and explaining secondary metabolism, is still required.
+In this work, we derived a multiphase and multiobjective dynamic genome-scale
+model of batch fermentation, which accounts for carbon and nitrogen metabolism
+throughout time and explains secondary metabolism. The model required various
+reﬁnements to succeed: (i) a novel metabolic reconstruction, based on an extension of
+the current consensus genome-scale model of S. cerevisiae (Yeast8 [18]); (ii) multiphase
+multiobjective implementation of a parsimonious ﬂux balance analysis (pFBA) (19) to
+compute the dynamics of the intracellular ﬂuxes; (iii) a model of protein turnover to
+explain nitrogen homeostasis; and (iv) a dynamic biomass equation to account for bio-
+mass composition variations throughout the process.
+As a relevant case study, we considered the metabolism of S. cerevisiae and
+Saccharomyces uvarum strains in rich medium fermentation. Recent studies revealed
+that S. uvarum strains show interesting physiological properties. S. uvarum is more cry-
+otolerant than S. cerevisiae , produces more glycerol and less ethanol than S. cerevisiae
+wine strains, and has different aroma pro ﬁles (20 –23). In addition, traits such as its
+increased 2-phenylethanol (24, 25) yield could make this species a good candidate for
+metabolic engineering studies (26).
+We applied the proposed model to investigate the origin of the phenotypic diver-
+gence between species. The model explained the experimental data successfully and
+revealed differences into how species achieve redox balance. Predicted intracellular
+ﬂuxes led us to hypothesize that cryotolerant yeast strains can use the
+g-aminobutyric
+acid (GABA) shunt as an alternative NADPH source and store reductive power —neces-
+sary to subdue oxidative stress under cold conditions —in lipids or other polymers.
+Additionally, our results are compatible with recent experimental observations show-
+ing that most carbon skeletons used to form higher alcohols (i.e., isoamyl alcohol, iso-
+butanol, and 2-phenylethanol) are synthesized de novo.
+RESULTS
+Novel metabolic reconstruction. We updated the Yeast8 consensus genome-scale
+reconstruction of S. cerevisiae S288C (v.8.3.1) (18) to include 38 metabolites and 50
+reactions to explain secondary metabolism (Table S1). Furthermore, comprehensive
+metabolic annotations, such as SBO (Systems Biology Ontology) terms and MetaNetX
+identiﬁers, were added to the new metabolites and reactions.
+Among the metabolites added, 13 aroma compounds were included. Noticeably, we
+found that prior genome-scale reconstructions lacked methionol and tyrosol impeding
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 2
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 3 ---
+simulated growth on methionine and tyrosine as sole nitrogen sources, which is known
+to be possible for several S. cerevisiae strains, including S288C.
+MetaDraft, AuReMe, and the results from the orthology analysis were used to create
+strain-speciﬁc models for two wine strains, S. cerevisiae T73 and S. uvarum BMV58, and a
+strain, S. uvarum CECT12600, found in nonfermentation environments (further details can
+be found in Text S1). These strains are referred to as ScT73, SuBMV58, and SuCECT12600
+here. The three models had 2, 3, and 2 reactions that were not in Yeast8, respectively.
+Multiphase multiobjective ﬂux balance analysis framework. Our results showed
+that batch fermentation modeling should be divided intoﬁve phases in which cellular objec-
+tives andﬂu xc o n s t r a i n t sn e e dt ob em o d iﬁed: lag phase, exponential growth, growth under
+nitrogen limitation, stationary, and decay (Fig. 1A and B sketch the modeling approach).
+Their duration is imposed by the estimated parameterst
+L, tE , tS,a n dtD, illustrated in Fig. 1B.
+Once inoculated, cells encounter new nutrients and undergo a temporary period of
+nonreplication, the lag phase, during which we assumed that ATP production is maxi-
+mized. The exponential growth phase covers only the ﬁrst hours until nitrogen exhaus-
+tion. In this phase, cells maximize growth. During growth under nitrogen limitation
+cells, still maximizing growth, accumulate carbohydrates. Thenceforward, a substantial
+fraction of the sugar is consumed during the stationary and decay phases by quiescent
+cells, which adjust their metabolism to cope with environmental ﬂuctuations. In the
+last two phases, we assumed that cells maximize both ATP and protein production.
+The general formulation of the FBA problem reads as follows:
+maximize
+v Jp
+subject to
+S /C1 v ¼ 0
+vNH4 $ fNH4 NH4ðÞ
+vAAi $ fAA AAiðÞ ; 8i ¼ 1; /C1/C1/C1 ; 20
+vGlx ¼ fGlx Glx; EðÞ
+vF ¼ fF F; EðÞ
+vO2 ¼ fO O2ðÞ
+vPj ¼ fPj vGlx; vFðÞ ; 8j ¼ 1; /C1/C1/C1 ; 20
+where Jp is the function to be maximized in each phase p, S is the stoichiometric matrix,v
+is the vector of ﬂuxes in millimoles per gram (dry weight [DW]) per hour, vGlx and vF are
+the ﬂuxes of glucose and fructose, vO2 is the ﬂux of O 2 present only at the beginning of
+the fermentation, vNH4 is the ﬂux of ammonium, vAAi is the exchange rate of the amino
+acid i (covering all 20 amino acids), and vPj are the constraints associated with the
+j ¼ 1; ... ; 20 fermentation products considered. Glx,F,N H4,A Ai,a n dPj correspond to the
+concentrations of glucose, fructose, ammonium, amino acids, and products, all expressed
+in millimoles per liter. Table S2 presents the speciﬁc formulation for each phase.
+The uptake of glucose and fructose was modeled using Michaelis-Menten (MM)-
+type kinetics with competitive ethanol inhibition (14):
+vGlx ¼ 2vmaxG /C1 Glx
+Glx 1 kG
+/C1 1
+1 1 E=KEi
+(1)
+where vmaxG is the maximum uptake rate, kG is the MM constant, KEi is the strength of
+ethanol inhibitory effect, and E is its concentration (mmol/liter). A similar expression,
+vF , exists for fructose ( F). Additionally, in our case studies, the medium was supple-
+mented with sucrose; thus, we included a mass action-type expression, characterized
+by the kinetic constant khydro, describing its hydrolysis.
+A certain amount of dissolved oxygen is present in the medium and consumed dur-
+ing the lag phase (see Fig. S3B in Text S2). Its uptake is determined as follows:
+vO2 $ 2kO2 /C1 O2 (2)
+where vO2 and kO2 are the oxygen uptake and transport rate constants and O 2 is the
+concentration of oxygen in the medium.
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 3
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 4 ---
+The uptake of ammonium was modeled by
+vNH4 $ 2vmaxNH4 /C1 NH4
+NH4 1 kNH4
+(3)
+where NH 4 is the extracellular concentration of ammonia (in millimoles per liter),
+vmaxNH4
+is the maximum uptake rate achieved, and kNH4 is the MM constant. To avoid an
+excessive number of parameters, amino acid transport was modeled following mass
+action kinetics:
+FIG 1 Details on the implementation of the multiphase and multiobjective dynamic genome-scale model to simulate
+batch fermentation. (A) Implementation, model formulation, and solution approach. (B) Multiphase and multiobjective
+dynamic FBA and methodology to compute dynamic ﬂux rates. The process starts at t
+0 ¼ 0 and ends at tF ; the timing of
+each phase tL , tE , tS , and tD is computed through parameter estimation. (C) Model improvements through additional
+mechanisms. (C1) Model prediction versus the experimental dynamics of methionine with and without its degradation
+pathway; (C2) schematic view of active versus viable biomass in the model; (C3) YAN consumption prediction with static
+and dynamic biomass equations; (C4 to C6) model predictions versus biomass, CFU, and OD
+600 measurements.
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 4
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 5 ---
+vAAi $ 2kAAi /C1 AAi (4)
+where AA i is the extracellular concentration of the amino acid (in millimoles per liter)
+and kAAi is the associated kinetic parameter.
+Production of alcohols and higher alcohols, carboxylic acids, and esters follows
+mass action kinetics:
+Pi
+_
+¼ XA /C1 vPi (5)
+with XA the active biomass and the ﬂux, vPi , proportional to the amount of transported
+hexoses:
+vPi ¼ 2kPi /C1 vGlx1vFðÞ (6)
+where Pi refers to the excreted product i ¼ 1; ... ; 20 and kPi the production rates.
+An exception to this was the formulation of the dynamics of acetate. This metabo-
+lite is produced during exponential growth and consumed during stationary phase fol-
+lowing mass action kinetics.
+Model of protein turnover. Since nitrogen sources are depleted before the station-
+ary phase, we developed a new model of nitrogen homeostasis that considered pro-
+tein turnover. The proposed model describes the combined use of the Ehrlich and de
+novo synthesis pathways during stationary and decay phases to guarantee optimal ad-
+aptation to perturbations in nitrogen homeostasis.
+To introduce protein turnover, we simulated the degradation of the existing protein
+fraction inside biomass (Prot), into a pool of amino acids that subsequently produce
+new proteins. During stationary and decay phases, the lower bounds on the amino
+acid uptake are set as
+v
+AAi $ 2l /C1 Prot /C1 aAAi (7)
+where l is the turnover rate, Prot is the concentration of protein, and aAAi is associ-
+ated with the stoichiometric coef ﬁcient of the amino acid i in the protein pseudoreac-
+tion. Mathematically, the dynamics of protein content reads as follows:
+dProt
+dt ¼ m /C1 Xv /C1 Protcontent 2 Prot /C1 kdeath 1 XA /C1 vProt 2 l /C1 Prot (8)
+where m is the growth rate, Prot content is the fraction of protein in the newly formed
+biomass, kdeath (per hour) is the rate of biomass degradation during decay phase, XV is
+the simulated viable biomass (grams per liter), XA is the simulated active biomass
+(grams per liter), vProt is the protein production rate (grams per gram [DW] per hour),
+and l is the protein turnover rate (per hour).
+The degraded proteins ( l /C1 Prot) are converted into extracellular amino acids
+whose concentrations are represented by the following equations:
+dAAi
+dt ¼ X /C1 vAAi 1 l /C1 Prot /C1 aAAi (9)
+The rates vAAi are computed by maximizing protein production ( vProt) and ATP
+(VATP) while solving the FBA problem:
+maximizev vProt; f /C1 vATP
+subject to
+S /C1 v ¼ 0
+vAA , l /C1 Prot /C1 aAA
+vPro ¼ vGlx 1 vFðÞ /C1 aPro
+...
+where f is estimated for each strain, S is the stoichiometric matrix, v is the vector of
+ﬂuxes, vAAi is the exchange rate of amino acid AA i, vPi are constraints associated with
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 5
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 6 ---
+fermentation products, and vPro (r_1904) is the amount of excreted proline. The last
+amino acid accumulates in the extracellular medium throughout the fermentation (see
+Fig. S3 in Text S2), likely as a consequence of stored arginine consumption under an-
+aerobic conditions (27). The extracellular dynamics of proline is described as follows:
+dPro
+dt ¼ XA /C1 vPro (10)
+Depending on the kinetic constraints, amino acids can be directly incorporated into
+proteins or degraded to recover nitrogen for protein production. We observed that
+those amino acids which lacked pathways for their catabolism or elimination accumu-
+lated in the extracellular compartment during stationary phase. As an example,
+Fig. 1C1 shows how including a catabolic route for methionine, during stationary
+phase, successfully describes its dynamics, possibly indicating that this route could be
+active during the stationary phase.
+Dynamic biomass equation. A static biomass equation was not able to explain
+nitrogen assimilation (Fig. 1C2). Therefore, we implemented the following dynamic
+biomass equation (15):
+Prot
+content ¼ A /C1 1 2 eB/C1 YANðÞ (11)
+where A and B are estimated parameters and yeast assimilable nitrogen (YAN) accounts
+for the ammonium and free amino acids present in the medium, excluding proline,
+which is not catabolized under anaerobic conditions.
+Furthermore, we assumed that mRNA level was proportional to the protein content
+(mRNA ¼ Prot=RNA /C0 to /C0 Prot ratio). In this framework, carbohydrates compensate
+for the variation in protein and mRNA content. Growth-associated ATP maintenance
+(GAM) was also updated to account for the polymerization costs of the different mac-
+romolecules (protein, RNA, DNA, and carbohydrates):
+GAM ¼ GAM
+fitted 1 GAMProt 1 GAMRNA 1 GAMCarbs 1 GAMDNA (12)
+where GAMfitted is a species- or strain-dependent parameter estimated from data and the
+rest are polymerization costs of the different biomass precursors (adapted from reference
+18). Additionally, to represent the premature end of fermentations during the decay phase
+(observed in SuCECT12600), we estimated the non-growth-associated maintenance (NGAM).
+In addition, we discriminated between active cells (able to ferment) and viable cells
+(able to divide and ferment) to capture the dynamics of CFU and biomass (Fig. 1C2).
+The dynamics of active cell mass is represented by the equation
+X
+A
+_
+¼ m /C1 XV 2 XA /C1 kdecay 1 XA /C1 vProt 2 l /C1 Prot (13)
+where XA is the active cell mass (grams per liter), m is the growth rate computed with
+pFBA, kdecay is the decay rate (only active during decay), vProt (r_4047) is the exchange
+ﬂux for protein production, and l is the turnover rate (both only active during station-
+ary and decay phases). The behavior of viable cell mass differed from that of active cell
+mass by a decline induced by ethanol (28):
+Xv
+_
+¼ XA
+_
+2Xv /C1 kEdeath /C1 En
+En 1 kn (14)
+where Xv (grams per liter) is the growth rate obtained with the constraint based model,
+E is the ethanol concentration (millimoles per liter), and kEdeath, n, and k are the param-
+eters controlling susceptibility to ethanol.
+The former mechanisms, coupled to parameter estimation, allowed us to predict
+nitrogen consumption, CFU, and biomass dynamics accurately (Fig. 1C3 to Fig. 1C6).
+Goodness of ﬁt of the model in the case studies. The ﬁnal model consisted of 46
+ordinary differential equations depending on 66 parameters which we estimated from
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 6
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 7 ---
+time series data for all measured external metabolites and biomass. The mean standard
+deviation on the parameters ranges from 2 :5% for SuCECT12600 and 12 :6% for
+SuBMV58. The reasonably low distribution on the parameters resulted in a reasonably
+low uncertainty associated with the model simulations (as seen in Fig. 2, 3, and 4).
+The model described the dynamics of our illustrative examples successfully. The
+best ﬁt to the data and the associated uncertainty, as computed by the bootstrap, are
+shown in Text S2 and Fig. 3 and 4. We determined the R-squared measure of goodness
+FIG 2 Comparative study of the ﬂuxes through the reactions consuming and producing NADH and NADPH at the
+stationary phase, illustrating how strains achieve redox balance. The most signi ﬁcant differences between strains are
+found at the level of the TCA cycle, the GABA shunt, the pentose phosphate pathway, the biosynthesis of aromatic
+amino acids which eventually lead to production of 2-phenylethanol (PEA) and the Ehrlich pathway toward
+production of isoamylol. It is also important to note that S. uvarum diverts ﬂux to the production of mevalonate.
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 7
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 8 ---
+No flux during
+stationary phase 
+.
+.
+Central carbon metabolism
+Mitochondrion
+  Glucose + FructoseEthanol
+E) F) G)
+H)
+Cytoplasm
+B) Fructose (g/L)
+Time (h)0               100
+80
+60
+40
+20
+C)
+Time (h)
+Acetate (g/L)
+0                 100
+0
+0.1
+0.2
+Produces NADPH
+Consumes NADPH
+Consumes NADH
+Produces NADH
+Shuttle, carrier,
+exchange
+Stoichiometry 2x
+Sc T73
+Su BMV58
+Su CECT12600
+Time (h)
+0                100
+Glycerol (g/L)
+6
+4
+2
+Ethanol
+Time (h)0                100
+100
+50
+0
+(g/L)Succinate(g/L)
+Time (h)0                100
+6
+4
+2
+Time (h)
+2,3-Butanediol (g/L)
+0                100
+0.5
+1
+D)
+Acetate
+Acetate
+A-CoA
+Ethyl 
+acetate
+Ethyl acetate
+O-acetylcarnitine
+G3P
+DHAP
+Acetaldehyde  
+Ethanol
+G3P
+Glycerol
+DHAP
+F16BP
+GADP
+Glycerol
+PEP
+Pyruvate
+Isopropylmalate
+Isopropylmalate
+A-CoA
+Shikimate
+Citrate
+Oxaloacetate
+Malate
+Isocitrate
+2-oxoglutarate
+Cis-aconitate
+BCAAs & related 
+higher alcohols
+Isocitrate
+Succinic
+semialdehyde
+Oxoloacetate
+Succinate
+Succinate
+Malate
+Ethanol
+Pyruvate
+Acetaldehyde
+2,3-Butanediol
+Acetoin
+2,3-Butanediol
+Glutamate
+< 0.1 
+Dynamic
+Flux ratio (mmol/mmolH)
+< 0.3
+Line thickness = flux ratio
+Except for: Thick lines > 50; 
+F16P PPP
+ PPP
+TCA Reductive branch
+TCA Oxidative
+branch
+Lines: model
+Symbols: data
+A) Glucose (g/L)
+Time (h)0               100
+100
+80
+60
+40
+20
+Citrate
+2-oxoglutarate
+r_0492
+r_2057
+r_1000
+r_2034
+r_1106
+r_0159
+r_0254
+r_0025
+r_1574
+r_0658
+r_2131
+r_0302
+r_0280
+r_0659
+r_0713
+r_0714
+r_2132
+Malate
+r_1763
+r_0300
+r_0112
+r_1120
+Carnitine
+r_0489
+r_1172
+r_0452
+r_0958
+Ethanol
+Acetaldehyde r_1632
+r_1128
+r_2115 
+r_0491
+r_0472
+r_0471
+r_0469
+2-oxoglutarate
+r_0068
+r_0068
+GABA
+Fumarate
+Mevalonate
+r_1023
+r_1096
+Mevalonate
+3-hydroxy-
+methylglutaryl
+-CoA
+r_0559
+Acetoacetyl
+-CoA
+r_0103r_0165
+FIG 3 Redox balance in central carbon metabolism. Panels A to F show model predictions versus the experimental data extracellular metabolite
+concentrations associated with glycolysis and central carbon metabolism for the three strains. Panel H presents the predicted intracellular dynam ic ﬂux
+ratios during the stationary phase, showing how S. uvarum and S. cerevisiae strains use different redox balance strategies. These differences result in the
+differential production of relevant external metabolites such as acetate (C), succinate (D), ethanol (E), 2,3-butanediol (F), and glycerol (G). Ex plicit differences
+in the pathways in gray are presented in Text S3; otherwise, as indicated in the legend, width of the lines is proportional to the dynamic ﬂux ratio.
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 8
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 9 ---
+of ﬁt( R2) for each measured variable and each strain-based fermentation. The medians
+of the R2 values are above 0 :94 for all strains.
+Interested readers may ﬁnd further details on the parameter estimation in Text S2.
+Optimal parameter values and R2 values are reported in Table S3.
+Species behavior differs signi ﬁcantly in the stationary phase. At the extracellular
+level, the most striking differences between strains occur in the production of compounds
+associated with the central carbon metabolism and nitrogen metabolism, in particular, in the
+dynamics of acetate and the yields of succinate, 2,3-butanediol, and glycerol (Fig. 3C, D, F, and
+G) and in the production of 2-phenylethanol and isoamyl alcohol (Fig. 4B and D).
+FIG 4 Redox balance in higher-alcohol production. Panel A shows the predicted intracellular ﬂux ratios (above 0.01 mmol/mmolH) related to
+higher alcohols 2-phenylethanol (PEA), isobutanol, and isoamyl alcohol during the stationary phase and their corresponding impact on the
+redox balance of cofactors NADPH/NADP
+1 and NADH/NAD 1. Panels B to D correspond to the comparison between model predictions and
+raw measures of PEA, isobutanol, and isoamyl alcohol, respectively. Other higher alcohols, such as methionol and tyrosol, seemed to accumulate
+in minimal quantities (ﬂux ratio 100 ’ 0:001) in response to perturbations in the amino acid pool.
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 9
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 10 ---
+We used the model to decipher the metabolic strategies used by the different strains
+that lead to such differences. Table S4 reports the dynamic ﬂux ratios computed for the
+overall process and the different phases using equations 21 to 23 for those reactions in
+which the maximum ﬂux ratio value over the three species is above 0.01 mmol/mmolH
+(where mmolH is millimoles of consumed hexose /C2 100). Uncertainties associated with
+the ﬂuxes due to uncertainties on the parameters are also reported.
+Text S3 summarizes the differences observed in ﬂux ratios between species and
+phases. Again, the intracellular behavior differs signi ﬁcantly in the stationary phase.
+Thus, subsequent sections elaborate on the metabolic study of the stationary phase.
+Remarkably, this is also the phase in which higher alcohols and aroma are produced,
+thus being relevant for industrial applications.
+The GABA shunt as an NADPH source in cryotolerant species. Cells produced the
+most signi ﬁcant fraction of succinate during the stationary and decay phases, with a
+signiﬁcantly higher dynamic ﬂux ratio by SuBMV58 and SuCECT1600 (6 :08 and 1 :66)
+than ScT73 (0:42, r 2057).
+During the decay phase, most succinate was produced through the tricarboxylic
+acid (TCA) cycle reductive branch in the two species. However, during the stationary
+phase, succinate production was distributed between the GABA shunt (ScT73, 0.42;
+SuBMV58, 2.00; SuCECT12600, 1 :31; Fig. 3H, r 1023) and the reductive branch of TCA
+(ScT73, 0:00; SuBMV58, 4 :10; and SuCECT12600, 0 :35; Fig. 3H, r 1000). Remarkably, suc-
+cinate production through the GABA shunt was between 3 and 4.6 times higher for S.
+uvarum species than for S. cerevisiae (Fig. 3H, r 0068, r 1023). This result suggested an
+important role for the GABA shunt in the maintenance of the cellular redox state.
+Incidentally, revisiting data from reference 29, we found a considerable accumulation
+of GABA (93 :59-fold change) by SuCECT12600 (Table S4).
+Intracellular mevalonate as a reducing equivalent in cryotolerant yeast
+species. The three strains produced acetate during the growth phase (ScT73, 1 :079;
+SuBMV58, 1 :145; SuCECT12600, 1 :422 [Table S4, r 1106]) and until the entry into the
+stationary phase. Afterward, while the extracellular acetate concentration remained
+constant in ScT73, a decrease was observed in both S. uvarum fermentations, indicat-
+ing acetate consumption. As shown in Fig. 3C, our model successfully described these
+phenotypes.
+According to the modeling constraints, the most parsimonious explanation for this
+observation would have been an operative glyoxylate cycle. However, based on the
+repression by glucose of the key enzymes of the glyoxylate cycle (i.e., ICL1 and MLS1)
+and previous intracellular data (29), we decided to block this cycle and explore an alter-
+native hypothesis. As a result, the model suggested that S. uvarum strains incorporated
+the acetate derivative, acetyl coenzyme A (acetyl-CoA), into mevalonate (SuBMV58,
+0:19, and SuCECT12600, 0 :10; r 0559 and r 0103) also consuming NADPH. In addition,
+mevalonate is a reducing equivalent that can be further metabolized into, for example,
+ergosterol ( r 0127 in our reconstruction) possibly acting as storage of NADPH in cryo-
+tolerant species.
+S. uvarum strains also used the carnitine shuttle system to transport acetyl-CoA into
+the mitochondria (SuBMV58, 0 :09, and SuCECT12600, 0 :38; Fig. 3H, r 0254). Inside the
+mitochondria, acetyl-CoA was used to form isopropylmalate (Fig. 4A) —a precursor of
+leucine and isoamyl alcohol —or in the TCA oxidative branch toward the synthesis of 2-
+oxoglutarate (Fig. 3H).
+The production of higher alcohols contributed to the redox balance. Higher-
+alcohol production was most prominent during the stationary phase for the three
+strains. Our model predicted that carbon skeletons of isoamyl alcohol, 2-phenyletha-
+nol (PEA), and isobutanol were in great part synthesized de novo from glycolytic and
+pentose phosphate pathway (PPP) intermediates, rather than coming from the catab-
+olism of precursor amino acids (leucine, valine, and phenylalanine, respectively)
+(Fig. 4A).
+S. uvarum strains produced more PEA than ScT73 (ScT73, 0 :158; SuBMV58, 0 :659;
+and SuCECT12600, 0 :383; r 1590), while the opposite occurred for isoamyl alcohol
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 10
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 11 ---
+(ScT73, 0 :736; SuBMV58, 0 :483; and SuCECT12600, 0 :394; r 1863). We found that the
+production of PEA and isoamyl alcohol contributed substantially to the redox metabo-
+lism related to glycerol accumulation. Approximately 43%, 36%, and 27% of the glyc-
+erol produced by the ScT73, SuBMV58, and SuCECT12600 strains was attributable to
+NADH derived from isoamyl alcohol and PEA.
+The higher production of PEA observed in S. uvarum strains occurs through the higher
+ﬂux through the shikimate pathway (Fig. 4A,r
+0996 and r 0279). Interestingly, while ScT73
+had a larger ﬂux ratio through the oxidative pentose phosphate pathway (Fig. 4A,r 0091
+and r 0889) partly redirected toward glycolysis,S. uvarum simulations reﬂected the inverse
+pattern (Fig. 4A,r 0984), with glycolyticﬂux being shifted toward the nonoxidative PPP.
+Pyruvate in the mitochondrion showed two different fates: acetyl-CoA ( r 0961) and
+2-acetyllactic acid ( r 0097). Noticeably, S. uvarum strains also contributed to acetyl-CoA
+using the carnitine shuttle ( r 0254). 2-Acetyllactic acid can further be converted to 3-
+methyl-2-oxobutanoate, consuming one NADPH ( r 0096), which also showed two dif-
+ferent fates: the production of 2-isopropylmalate (leading to isoamyl alcohol; r 0025,
+r 0072, and r 0179) or valine (leading to the synthesis of isobutanol via the Ehrlich
+pathway; r 1087, r 0062, and r 0182).
+Production of PEA and isoamyl alcohol also affected NADP 1/NADPH metabolism.
+While the GABA shunt and oxidative PPP were the main producers of NADPH, con-
+sumption of NADPH was attributable mostly to isoamyl alcohol and PEA. In fact, the
+increased isocitrate dehydrogenase ﬂux ( r
+0659) observed in ScT73 (1 :646 against
+0:917 and 0 :727 in the S. uvarum strains) was associated with the need for shuttling
+NADPH into the mitochondria ( r 2131), utilized in 3-methyl-2-oxobutanoate synthesis
+(precursor of the isoamyl alcohol; see Fig. 3H and Fig. 4A). On the other hand, produc-
+tion of PEA without the oxidative PPP (predicted in the S. uvarum strains) resulted in
+excess NADP1. In the case of S. uvarum, given the reduced in ﬂuence of oxidative PPP,
+NADP
+1 recycling was achieved mostly through the GABA shunt.
+DISCUSSION
+Genome-scale models have the potential to decipher how nonconventional yeast
+species use metabolism to produce industrially relevant products and tolerate speci ﬁc
+stressors, such as cold temperatures. This study aimed to develop a dynamic genome-
+scale model to investigate the dynamics of yeasts primary and secondary metabolism
+in batch cultures. To generate biological hypotheses for modeling, we considered the
+description of the metabolism of S. cerevisiae and cryotolerant S. uvarum strains in a
+rich medium (grape must) fermentation.
+The ﬁrst question in this research was how to model all phases in the batch process:
+lag, exponential growth, limited nitrogen growth, stationary, and decay. Prior studies
+focused on the exponential growth phase and were based on available reconstructions
+with many missing reactions, particularly those related to secondary metabolism (14,
+15, 17, 30). Also, their static nature hinders the description of the sequential nature of
+amino acid consumption (31).
+As a ﬁrst step, we needed to extend a yeast genome-scale reconstruction to
+account for the production of higher alcohols, carboxylic acids, or esters. We extended
+the Yeast8 consensus model incorporating missing reactions and metabolites. A similar
+curation process has been recently applied to the iMM904 reconstruction (32). The
+authors ﬁtted the model to data from the literature, concluding that further curation
+and adaptations were necessary to successfully predict metabolism and biomass dy-
+namics. We experienced such dif ﬁculties in our ﬁrst iterations in the modeling process
+and introduced several new features to obtain more accurate simulations of carbon
+and nitrogen metabolism throughout time.
+A critical aspect for an improved accuracy was the multiphase multiobjective
+dynamic FBA scheme. Previous works focused on ATP consumption to explain the me-
+tabolism after depletion of the limiting nutrient (15, 33, 34); we incorporated the pro-
+duction of protein as a cellular objective (together with protein degradation) with
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 11
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 12 ---
+accurate results. Also, we modeled protein turnover to account for the uptake of amino
+acids and inorganic nitrogen in the stationary phase. To the best of our knowledge,
+this is the ﬁrst dynamic genome-scale metabolic model describing nitrogen homeosta-
+sis during the stationary phase. Finally, we introduced a dynamic biomass equation
+which further improved the model accuracy. This result agrees with observations in
+previous studies (35 –37) pointing out the relevance of detailing biomass composition
+in a context-speciﬁc manner.
+The second question in this research was to decipher the differences in the metabo-
+lism of three strains of two different species, S. cerevisiae and S. uvarum, in rich medium
+(grape must) fermentation. Recently, it was hypothesized that S. cerevisiae and S. uva-
+rum species might have different redox balance strategies (38). Notably, the model
+conﬁrmed this hypothesis and brought novel insights into the speci ﬁc routes used by
+the two species.
+Our predictions suggest alternative pathways for cryotolerant species to produce
+succinate and consume acetate. In principle, yeasts might form succinate via four main
+pathways, all based on the reactions of the TCA cycle (39). The selected pathway
+depends on the environmental conditions and strain. Our model predicted that ScT73
+and SuBMW58 produced overall the most succinate via the TCA reductive branch, in
+agreement with previous ﬁndings (40). However, our results also suggest an important
+role for the TCA oxidative branch until 2-oxoglutarate for the S. uvarum strains during
+the stationary phase. This result is consistent with the recent intracellular data
+obtained by Minebois et al. (25), who observed a noticeable intracellular accumulation
+of 2-oxoglutarate in SuBMV58.
+One somewhat unexpected ﬁnding of the model was the extent to which the GABA
+shunt would contribute to succinate formation during the stationary phase, an effect
+particularly evident in the case of S. uvarum strains. The role of this pathway in yeast is
+not fully understood (41 –43). Bach et al. (41) observed that glutamate decarboxylase
+(encoded by GAD1) was poorly expressed when succinate was produced in S. cerevisiae
+and that the GABA shunt played a minor role in redox metabolism. In contrast,
+Coleman et al. (44) showed that GAD1 expression is required for oxidative stress toler-
+ance in S. cerevisiae. Similarly, Cao et al. (42) showed that GAD1 confers resistance to a
+heat stress effect that might be related to NADPH production. Additionally, GAD1 was
+upregulated during the stationary phase under nitrogen starvation (41, 43, 45), and
+López-Malo et al. (29) observed high intracellular GABA levels in the cryotolerant spe-
+cies S. uvarum.
+Recently, Liu et al. (46) found clear indication that the GABA shunt may be involved
+in supplying NADPH for lipid synthesis in the oleaginous yeast Yarrowia lipolytica. Also,
+Bach et al. (41) showed that S. cerevisiae can degrade GABA into succinate or
+g-hydrox-
+ybutyric acid (GHB) and that GHB was used to form the polymer polyhydroxybutyrate
+(PHB). Also noteworthy is that PHBs are synthesized by numerous bacteria as carbon
+and energy storage compounds (47). PHBs are also strongly associated with bacterial
+cold tolerance (48), suggesting a similar function in yeast.
+Another important ﬁnding is that S. uvarum strains consume acetate once nitrogen
+sources are depleted, coinciding with the extracellular accumulation of succinate. This
+ﬁnding was also reported by Kelly et al. (49), who showed that an S. uvarum yeast iso-
+late can metabolize acetate, resulting in lower acetic acid, ethyl acetate, and acetalde-
+hyde concentrations in wine. The model predicted that some of the acetate carbon
+was directed toward mevalonate, which is in line with recent experimental work by
+Minebois et al. (25). According to Bach et al. (41), a route for acetyl-CoA incorporation
+into PHB polyester through 3-hydroxybutyrate-CoA seems plausible. However, this hy-
+pothesis is not taken into account by the genome-scale reconstructions.
+The fact that López-Malo et al. (29) found high intracellular GABA and GHB in cryo-
+tolerant strains grown in synthetic must (without GABA) at low temperature, and the
+ﬂux predicted in the present work, suggests that S. uvarum stores lipids or polyesters
+(i.e., PHBs) as reducing equivalents to withstand oxidative stress induced by low
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 12
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 13 ---
+temperatures. The role of the GABA shunt and the production of reducing equivalents
+in the metabolism of cryotolerant species may be plausible routes worth exploring.
+Our model also predicted that the carbon skeletons of higher alcohols (e.g., isobuta-
+nol and isoamyl alcohol) were mainly synthesized de novo rather than from the incor-
+poration and catabolism of amino acids (e.g., leucine and valine). This result agrees
+with the ﬁndings of Crépin et al. (50), who explored the fate of the carbon backbones
+of aroma-related exogenous amino acids using
+13C isotopic tracer experiments.
+Similarly, our results indicate that 2-phenylethanol was mostly synthesized de novo .
+We hypothesize that a positive contribution in glycerol content may also explain why
+the production of 2-phenylethanol and isoamyl alcohol is a conserved evolutionary
+trait in yeasts.
+Noticeably, most of NADPH consumption was associated with higher-alcohol syn-
+thesis. The increased ﬂux through cytosolic isocitrate dehydrogenase associated with
+isoamyl alcohol is compatible with reports associating high expression of IDP2 with
+nitrogen de ﬁciency (51) and stationary phase (52). Furthermore, the prediction that
+during the stationary phase, PEA is produced through the chorismate synthesis path-
+way (downstream of the nonoxidative PPP), thus regenerating some NADPH associated
+with the conversion of succinic semialdehyde into succinate, provides a counterintui-
+tive rationale for understanding the correlation between the observed differences in
+higher-alcohol and succinate production between S. cerevisiae and S. uvarum.
+Interestingly, the model predicts that most other higher alcohols (tyrosol, methio-
+nol, etc.) accumulate in small amounts due to perturbations in the amino acid pool.
+These results con ﬁrm the hypothesis raised by Shopska et al. (53), who suggested that
+the two schemes to produce higher alcohols —the Ehrlich pathway and de novo syn-
+thesis—are not in contradiction but two extremes of a common mechanism.
+Incidentally, Yuan et al. (54) showed that the assembled leucine biosynthetic pathway
+coupled with the Ehrlich degradation pathway results in high-level production of iso-
+amyl alcohol.
+Our bootstrap-based identi ﬁability analysis of the proposed model and the fact that
+model predictions are consistent with numerous previous ﬁndings lead us to conclude
+that the present model (along with the provided code) can simulate yeast metabolism
+in batch culture in a general chemically characterized medium; the only requirement
+would be to update the metabolic reconstruction if required for the speci ﬁc yeast spe-
+cies. The model can also be used to explore and engineer novel metabolic pathways
+toward speciﬁc bioproducts.
+MATERIALS AND METHODS
+Yeast strains. In this study, three yeast strains belonging to S. cerevisiae and S. uvarum were used:
+the commercial strain T73 (Lalvin T73 from Lallemand Montreal, Canada), originally isolated from wine
+in Alicante, Spain (55), was selected as our wine S. cerevisiae (ScT73) representative; the commercial
+strain BMV58 (SuBMV58, Velluto BMV58 from Lallemand Montreal, Canada), originally isolated from wine
+in Utiel-Requena (Spain), and the noncommercial CECT12600 strain, isolated from a nonfermentative
+environment (SuCECT12600, Alicante, Spain), represented S. uvarum.
+Fermentation experiments. Fermentation assays were performed with grape must obtained from
+Merseguera white grapes, collected in the 2015 vintage in Titaguas (Spain) and stored in several small
+frozen volumes (4 liters at 20°C). Before its use, the must was clari ﬁed by sedimentation for 24 h at 4°C
+and sterilized by adding dimethyl dicarbonate at 1 ml liter
+21. All fermentations were performed in 3 in-
+dependent biological replicates in 500-ml controlled bioreactors (MiniBio; Applikon, The Netherlands)
+ﬁlled with 470 ml of natural grape must. Each bioreactor was inoculated using an overnight starter cul-
+ture cultivated in Erlenmeyer ﬂasks containing 25 ml of YPD medium (2% glucose, 0 :5% peptone, 0 :5%
+yeast extract) at 25°C and 120 rpm in an agitated incubator (Selecta, Barcelona, Spain). Strain inoculation
+was done at an optical density at 600 nm (OD 600) of 0.100. The dynamics of the fermentation was regis-
+tered using different probes and detectors to control and measure temperature, pH, dissolved oxygen
+(Applikon, The Netherlands), and ef ﬂuent carbon dioxide level (INNOVA 1316 multigas monitors;
+LumaSense Technologies). Data were integrated into the BioExpert software tools (Applikon, The
+Netherlands). The fermentation was complete when a constant sugar content was reached as measured
+by high-performance liquid chromatography (HPLC).
+Sampling and quanti ﬁcation of extracellular metabolites. Extracellular metabolites, including
+sugars, organic acids, main fermentative by-products, and yeast assimilable nitrogen (YAN), were deter-
+mined at 10 sampling times during the fermentation. Residual sugars (glucose and fructose), organic
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 13
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 14 ---
+acids (acetate, succinate, citrate, malate, and tartrate), and the main fermentative by-products (ethanol,
+glycerol, and 2,3-butanediol) were quanti ﬁed using HPLC (Thermo Fisher Scienti ﬁc, Waltham, MA)
+coupled with refraction index and UV-visible (UV-Vis) (210-nm) detectors. Metabolites were separated
+through a HyperREZ XP Carbohydrate H 1 8-
+mm column coupled with a HyperREZ XP carbohydrate
+guard (Thermo Fisher Scienti ﬁc). The analysis conditions were as follows: eluent, 1.5 mM; ﬂux, 0.6 ml
+min21; and oven temperature, 50°C. For sucrose determination, the same HPLC was equipped with a Hi-
+Plex Pb, 300- by 7.7-mm column (Agilent Technologies, CA), and the following analysis conditions were
+used: eluent, Milli-Q water; ﬂux, 0.6 ml min 21; and oven temperature, 50°C. The retention times of the
+eluted peaks were compared to those of commercial analytical standards (Sigma-Aldrich, Madrid, Spain).
+Metabolite concentrations were quanti ﬁed by the calibration graphs ( R2 value . 0.99) of the previously
+obtained standards from a linear curve ﬁt of the peak areas using 10 standard mixtures.
+Determination of yeast assimilable nitrogen in the form of amino acids and ammonia was carried
+out following the same protocol as described previously (56). A volume of supernatant was removed
+from the fermentor, and amino acids and ammonia were separated with an ultraperformance liquid
+chromatograph (UPLC; Dionex Ultimate 3000; Thermo Fisher Scienti ﬁc, Waltham, MA) equipped with a
+Kinetex 2.6-
+mmC 18 100A column (Phenomenex, Torrance, CA) and Accucore C 18 10- by 4.6-mm, 2.6-mm
+Defender guards (Thermo Fisher Scienti ﬁc, Waltham, MA). For derivatization, 400 ml of the sample was
+mixed with 430 ml of borate buffer (1 M, pH 10.2), 300 ml of absolute methanol, and 12 ml of diethyl
+ethoxymethylenemalonate (DEEMM) and ultrasonicated for 30 min at 20°C. The ultrasonicated sample
+was incubated up at 80°C for 2 h to allow the complete degradation of excess DEEMM. Once the derivati-
+zation ﬁnished, the sample was ﬁltered with a 0.22- mm ﬁlter before injection. The target compounds in
+the sample were then identi ﬁed and quanti ﬁed according to the retention times, UV-Vis spectral charac-
+teristics, and calibration curves ( R2 value . 0.99) of the derivatives of the corresponding standards.
+Amino acid standard (reference no. AAS18), asparagine, and glutamine purchased from Sigma-Aldrich
+were used for calibration.
+Higher alcohols and esters. We also determined the concentrations of higher alcohols and esters
+for each sampling time. Volatile-compound extraction and gas chromatography (GC) were performed
+following the protocol described in reference 71. Extraction was performed using headspace solid-
+phase-microextraction sampling (SPME) with polydimethylsiloxane (PDMS) ﬁbers (Supelco; Sigma-
+Aldrich, Barcelona, Spain). Aroma compounds were separated by GC in a Thermo TRACE GC Ultra chro-
+matograph (Thermo Fisher Scienti ﬁc, Waltham, MA) equipped with a ﬂame ionization detector (FID),
+using an HP-INNOWAX 30-m by 0.25-mm capillary column coated with a 0.25-mm layer of cross-linked
+polyethylene glycol (Agilent Technologies, CA). Helium was the carrier gas used ( ﬂow, 1 ml min
+21). The
+oven temperature program was as follows: 5 min at 60°C, 5°C min 21 to 190°C, 20°C min 21 to 250°C, and
+2 min at 250°C. The detector temperature was 280°C, and the injector temperature was 220°C under
+splitless conditions. The internal standard was 2-heptanone (0.05% [wt/vol]). Volatile compounds were
+identiﬁed by the retention time for reference compounds. The quanti ﬁcation of the volatile compounds
+was determined using the calibration graphs of the corresponding standard volatile compounds.
+Physiological and biomass parameters. Physiological and biomass parameters, including OD
+600,
+dry weight (DW), CFU, and average cell diameter (ACD), were determined at each sample time, provided
+that the cell sample was suf ﬁcient to perform the corresponding measure. DW determination was per-
+formed by centrifuging 2 ml of the fresh sample placed in a preweighed Eppendorf tube in a MiniSpin
+centrifuge (Eppendorf, Spain) at maximum speed (13,200 rpm) for 3 min. After centrifugation, the super-
+natant was carefully removed, and the pellet was washed with 70% (vol/vol) ethanol and centrifuged
+under the same conditions. After washing, the aqueous supernatant was removed carefully and the
+tube placed in a 65°C oven for 72 h. DW was ﬁnally obtained by measuring the mass weight difference
+of the tube with a BP121S analytical balance (Sartorius, Goettingen, Germany). OD 600 was measured at
+each sampling time using a diluted volume of sample and a BioPhotometer spectrophotometer
+(Eppendorf, Germany). CFU were determined using 100 to 200 ml of a diluted volume of samples plated
+in YPD solid medium (2% glucose, 2% agar, 0 :5% peptone, 0 :5% yeast extract) and incubated for 2 days
+at 25°C. The resulting colonies were counted with a Comecta S.A. colony counter. Only plates with a CFU
+count between 30 and 300 were used to calculate the CFU of the original sample. For ACD determina-
+tion, a volume of cell sample was diluted into a phosphate-buffered saline solution and cell diameter
+measured using a Scepter handheld automated cell counter equipped with a 40-
+mm sensor (Millipore,
+Billerica, MA).
+Orthology analysis and genome-scale metabolic reconstruction. Genomes of ScT73 (57) and
+SuBMV58 and SuCECT12600 ( PRJNA471597; M. Morard, L. G. Macías, A. C. Adam, M. Lairón-Peris, R.
+Pérez-Torrado, C. Toft, and E. Barrio, unpublished data) were sequenced and assembled previously.
+Genome assemblies were annotated by homology and gene synteny using RATT (58 ). This approach let
+us transfer the systematic gene names of S. cerevisiae S288c annotation (59) to our assemblies and,
+therefore, to select only those syntenic orthologous genes in the T73, CECT12600, and BMV58 genomes
+for subsequent analyses.
+We added to the consensus genome-scale reconstruction of Saccharomyces cerevisiae S288C (v.8.3.2)
+metabolites and reactions related to amino acid degradation and higher-alcohol and ester formation.
+This reﬁned model was then used as a template for reconstructing strain-speci ﬁc genome-scale models
+for SuBMV58, SuCECT12600, and ScT73. MetaDraft, AuReMe and the results from the orthology analysis
+were used to create the strain-speci ﬁc models.
+Flux balance analysis. Flux balance analysis (FBA) (60, 61) is a modeling framework based on knowl-
+edge of reaction stoichiometry and mass/charge balances. The framework relies on the pseudo steady-
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 14
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 15 ---
+state assumption (no intracellular accumulation of metabolites occurs). This is captured by the well-
+known expression
+S /C1 v ¼ 0 (15)
+where S is stoichiometric matrix of ( n metabolites by m reactions) and v is a vector of metabolic ﬂuxes.
+The number of unknown ﬂuxes is higher than the number of equations, and thus, the system is undeter-
+mined. Still, it is possible to ﬁnd a unique solution under the assumption that cell metabolism evolves to
+pursue a predetermined goal which is de ﬁned as the maximization (or minimization) of a certain objec-
+tive function (J):
+max J
+s:t: :
+S /C1 v ¼ 0
+LB , v , UB
+(16, 17, 18, 19)
+where LB and UB correspond to the lower and upper bounds on the estimated ﬂuxes. Examples
+of objective functions J include growth rate, ATP, and the negative of nutrient consumption,
+etc.
+Typically, multiple optimal solutions exist for a given FBA problem. In parsimonious FBA (pFBA), the
+result is the most parsimonious of optimal solutions, i.e., the solution that achieves the speci ﬁc objective
+with the minimal use of gene products and the minimization of the total ﬂux load (62).
+Parameter estimation. The aim of parameter estimation is to compute the unknown parameters —
+growth-related constants and kinetic parameters —that minimize some measure of the distance
+between the data and the model predictions. The maximum likelihood principle yields an appropriate
+measure of such distance (63):
+Jmc uðÞ ¼
+Xnexp
+k¼1
+Xnobs
+j¼1
+Xnst
+i¼1
+yk;j;i uðÞ 2 ym
+k;j;i
+s k;j;i
+ ! 2
+(20)
+where nexp, nobs, and nst are, respectively, the number of experiments, observables (measured quanti-
+ties), and sampling times, while s k;j;i represents the standard deviation of the measured data as
+obtained from the experimental replicates. yjm represents each of the measured quantities, Xm and Cm in
+our case, and yj uðÞ corresponds to model predicted values, X and C. Observation functions were
+included for CFU and OD 600 in order to scale viable cell mass ( Xv ) and active cell mass ( XA), respectively.
+Parameters are estimated by solving a nonlinear optimization problem where the aim is to ﬁnd the
+unknown parameter values ( u ) to minimize Jmc uðÞ , subject to the system dynamics —the model —and
+parameter bounds (64).
+Uncertainty analysis. In practice, the value of the parameters u compatible with noisy experimental
+data is not unique; i.e., parameters are affected by some uncertainty (64). The consequence of signi ﬁcant
+parametric uncertainty is that it may impact the accuracy of model predictions.
+To account for model uncertainty, we used an ensemble approach. To derive the ensemble, we
+apply the bootstrap smoothing technique, also known as bootstrap aggregation (the bagging
+method) (65, 66). The bagging method is a well-established and effective ensemble model/model
+averaging device that reduces the variability of unstable estimators or classi ﬁers (66). The underly-
+ing idea is to consider a family of models with different parameter values H ¼
+u 1 ... u N½/C138 T compat-
+ible with the data ym, when using the model to predict untested experimental setups. The matrix
+of parameter values H consistent with the data is obtained using N realizations of the data
+obtained by bootstrap (67). Each data realization has the same size as the complete data set, but it
+is constructed by sampling uniformly from all replicates (3 biological replicates per sampling
+time). Within each iteration, each replicate has an approximate chance of 37% of being left out,
+while others might appear several times. The family of solutions, H,i st h e nu s e dt om a k e N pre-
+dictions (dynamic simulations) about a given experimental scenario. The median of the simulated
+trajectories regards the model prediction, while the distribution of the individual solutions at a
+given sampling time provides a measure of the uncertainty of the model.
+Analysis of dynamic metabolic ﬂuxes. We selected the most relevant metabolic pathways using
+a ﬂux ratio, which provides a measure of the net ﬂux over time during growth and stationary phases.
+In particular, we computed the integral of each ﬂux multiplied by the biomass (millimoles per hour)
+over time and normalized its value with the accumulated ﬂux of consumed hexoses (glucose and
+fructose):
+S
+i;G ¼ 100 /C2
+ð tS
+tL
+vi tðÞ /C1 DW tðÞ
+ð tS
+tL
+vGlx tðÞ /C1 DW tðÞ 1
+ð tS
+tL
+vFr tðÞ /C1 DW tðÞ
+(21)
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 15
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 16 ---
+Si;S ¼ 100 /C2
+ð tD
+tS
+vi tðÞ /C1 DW tðÞ
+ð tD
+tS
+vGlx tðÞ /C1 DW tðÞ 1
+ð tD
+tS
+vFr tðÞ /C1 DW tðÞ
+(22)
+Si;O ¼ 100 /C2
+ð tF
+t0
+vi tðÞ /C1 DW tðÞ
+ð tF
+t0
+vGlx tðÞ /C1 DW tðÞ 1
+ð tF
+t0
+vFr tðÞ /C1 DW tðÞ
+(23)
+where Si;G corresponds to the score of the ﬂux i during growth, Si;S corresponds to the score during the
+stationary phase, Si;D corresponds to the score during the decay phase, vi tðÞ (millimoles per hour per
+gram [dry weight]) is the ﬂux under scrutiny, vGlx tðÞ (millimoles per hour per gram [dry weight]) is the
+ﬂux of glucose, vFr tðÞ (millimoles per hour per gram [dry weight]) is the ﬂux of fructose, and DW is the
+predicted dry weight biomass (grams). Results correspond to millimoles of produced compound per
+millimole of consumed hexose /C2 100 (mmolH). Score values indicate the overall impact of each reaction
+in the net oxidation or reduction of electron carriers during the given phase of the fermentation.
+Numerical tools. To automate the modeling pipeline, we used the AMIGO2 toolbox (68). To solve
+the dynamic ﬂux balance analysis (dFBA) problem, we used a variable-step, variable-order Adams-
+Bashforth-Moulton method to solve the system of ordinary differential equations that describe the dy-
+namics of the extracellular metabolites. At each time step, the pFBA problem was solved using the
+COBRA Toolbox (69). The global optimizer Enhanced Scatter Search (eSS [70]) was used to ﬁnd the opti-
+mal parameter values in reasonable computational time.
+The ensemble model generation procedure is computationally intensive. However, since each pa-
+rameter estimation instance in the ensemble is an entirely independent task, we were able to solve this
+problem in less than a day using 60 CPU cores on a Linux cluster. These tasks were automated with the
+help of bash scripts and the Open Grid Scheduler. All the scripts necessary to reproduce the results are
+distributed (https://sites.google.com/site/amigo2toolbox/examples
+).
+SUPPLEMENTAL MATERIAL
+Supplemental material is available online only.
+TEXT S1, PDF ﬁle, 0.3 MB.
+TEXT S2, PDF ﬁle, 2.7 MB.
+TEXT S3, PDF ﬁle, 1.1 MB.
+TABLE S1, XLSX ﬁle, 0.01 MB.
+TABLE S2, XLSX ﬁle, 0.1 MB.
+TABLE S3, XLSX ﬁle, 0.02 MB.
+TABLE S4, XLSX ﬁle, 0.2 MB.
+ACKNOWLEDGMENTS
+This project has received funding from MCIU/AEI/FEDER, UE (grant references
+RTI2018-093744-B-C31, RTI2018-093744-B-C32, RTI2018-093744-B-C33, and PID2019-
+104113RB-I00) and Xunta de Galicia (IN607B 2020/03). R.M. was supported by an FPI
+grant from the Ministerio de Economía y Competitividad, Spain (reference BES-2016-
+078202). S.N.M. acknowledges funding from CONICYT Becas Chile grant 72180373. S.N.M.
+and B.T. acknowledge support from YogurtDesign, EraCoBioTech grant 053.80.733.
+D.H. implemented the model. R.M. performed the experiments. S.N.M. performed the
+reconstruction of strain-speciﬁc genome-scale models. L.G.M. assembled and annotated the
+genome. D.H., S.N.M., and L.G.M. participated in the gapﬁlling process of metabolic functions
+in the model and in the development of the biomass equations. E.B.-C., R.P.-T., A.Q., B.T., and
+E.B. coordinated the work and design of the study/pipeline. D.H., R.M., S.N.M., L.G.M., and
+E.B.-C. wrote the original manuscript. All authors read, edited, and approved theﬁnal paper.
+REFERENCES
+1. Nielsen J, Keasling JD. 2016. Engineering cellular metabolism. Cell
+164:1185 –1197. https://doi.org/10. 1016/j.cell.2016.02.004 .
+2. Liu Q, Yu T, Li X, Chen Y, Campbell K, Nielsen J, Chen Y. 2019. Rewiring
+carbon metabolism in yeast for high level production of aromatic
+chemicals. Nat Commun 10:4976. https://doi.org/10.1038/s41467-019
+-12961-5 .
+3. Guo W, Huang Q, Feng Y, Tan T, Niu S, Hou S, Chen Z, Du Z-Q, Shen Y, Fang X.
+2020. Rewiring central carbon metabolism for tyrosol and salidroside produc-
+tion inSaccharomyces cerevisiae. Biotechnol Bioeng 117:2410–2419.https://doi
+.org/10.1002/bit.27370
+.
+4. Perli T, van der Vorm Daan NA, Wassink M, van den Broek M, Pronk JT, Daran
+J-M. 2021. Engineering heterologous molybdenum-cofactor-biosynthesis and
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 16
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 17 ---
+nitrate-assimilation pathways enables nitrate utilization bySaccharomyces cer-
+evisiae. Metab Eng 65:11–29. https://doi.org/10.1016/j.ymben.2021.02.004.
+5. Klein M, Swinnen S, Thevelein JM, Nevoigt E. 2017. Glycerol metabolism
+and transport in yeast and fungi: established knowledge and ambiguities.
+Environ Microbiol 19:878–893. https://doi.org/10.1111/1462-2920.13617
+.
+6. Wang G, Huang M, Nielsen J. 2017. Exploring the potential of Saccharomy-
+ces cerevisiae for biopharmaceutical protein production. Curr Opin Bio-
+technol 48:77–84. https://doi.org/10.1016/j.copbio.2017.03.017.
+7. van Wyk N, Kroukamp H, Pretorius IS. 2018. The smell of synthetic biology:
+engineering strategies for aroma compound production in yeast. Fermen-
+tation 4:54. https://doi.org/10.3390/fermentation4030054
+.
+8. Liu Q, Liu Y, Chen Y, Nielsen J. 2020. Current state of aromatics production
+using yeast: achievements and challenges. Curr Opin Biotechnol 65:65–74.
+https://doi.org/10.1016/j.copbio.2020.01.008.
+9. Steensels J, Verstrepen KJ. 2014. Taming wild yeast: potential of conventional
+and nonconventional yeasts in industrial fermentations. Annu Rev Microbiol
+68:61–80. https://doi.org/10.1146/annurev-micro-091213-113025.
+10. Hittinger CT, Rokas A, Bai F-Y, Boekhout T, Gonçalves P, Jeffries TW,
+Kominek J, Lachance M-A, Libkind D, Rosa CA, Sampaio JP, Kurtzman CP.
+2015. Genomics and the making of yeast biodiversity. Curr Opin Genet
+Dev 35:100–109. https://doi.org/10.1016/j.gde.2015.10.008
+.
+11. Oberhardt MA, Palsson BØ, Papin JA. 2009. Applications of genome-scale
+metabolic reconstructions. Mol Syst Biol 5:320. https://doi.org/10.1038/
+msb.2009.77.
+12. Sánchez BJ, Zhang C, Nilsson A, Lahtvee P-J, Kerkhoven EJ, Nielsen J.
+2017. Improving the phenotype predictions of a yeast genome-scale met-
+abolic model by incorporating enzymatic constraints. Mol Syst Biol
+13:935. https://doi.org/10.15252/msb.20167411.
+13. Lopes H, Rocha I. 2017. Genome-scale modeling of yeast: chronology,
+applications and critical perspectives. FEMS Yeast Res 17:fox050. https://
+doi.org/10.1093/femsyr/fox050.
+14. Hjersted JL, Henson MA, Mahadevan R. 2007. Genome-scale analysis of
+Saccharomyces cerevisiae metabolism and ethanol production in fed-
+batch culture. Biotechnol Bioeng 97:1190 –1204. https://doi.org/10.1002/
+bit.21332.
+15. Vargas FA, Pizarro F, Pérez-Correa JR, Agosin E. 2011. Expanding a
+dynamic ﬂux balance model of yeast fermentation to genome-scale. BMC
+Syst Biol 5:75. https://doi.org/10.1186/1752-0509-5-75.
+16. Sánchez BJ, Pérez-Correa JR, Agosin E. 2014. Construction of robust
+dynamic genome-scale metabolic model structures of Saccharomyces cer-
+evisiae through iterative re-parameterization. Metab Eng 25:159 –173.
+https://doi.org/10.1016/j.ymben.2014.07.004.
+17. Saitua F, Torres P, Pérez-Correa JR, Agosin E. 2017. Dynamic genome-scale
+metabolic modeling of the yeast Pichia pastoris . BMC Syst Biol 11:27.
+https://doi.org/10.1186/s12918-017-0408-2.
+18. Lu H, Li F, Sánchez BJ, Zhu Z, Li G, Domenzain I, Marci šauskas S, Anton
+PM, Lappa D, Lieven C, Beber ME, Sonnenschein N, Kerkhoven EJ, Nielsen
+J. 2019. A consensus S. cerevisiae metabolic model Yeast8 and its ecosys-
+tem for comprehensively probing cellular metabolism. Nat Commun
+10:3586. https://doi.org/10.1038/s41467-019-11581-3
+.
+19. Lewis NE, Hixson KK, Conrad TM, Lerman JA, Charusanti P, Polpitiya AD,
+Adkins JN, Schramm G, Purvine SO, Lopez-Ferrer D, Weitz KK, Eils R, König
+R, Smith RD, Palsson BØ. 2010. Omic data from evolved E. coli are consist-
+ent with computed optimal growth from genome-scale models. Mol Syst
+Biol 6:390. https://doi.org/10.1038/msb.2010.47
+.
+20. Gamero A, Tronchoni J, Querol A, Belloch C. 2013. Production of aroma
+compounds by cryotolerantSaccharomycesspecies and hybrids at low and
+moderate fermentation temperatures. J Appl Microbiol 114:1405 –1414.
+https://doi.org/10.1111/jam.12126.
+21. Goold HD, Kroukamp H, Williams TC, Paulsen IT, Varela C, Pretorius IS.
+2017. Yeast ’s balancing act between ethanol and glycerol production in
+low-alcohol wines. Microb Biotechnol 10:264 –278. https://doi.org/10
+.1111/1751-7915.12488.
+22. Alonso-del-Real J, Lairón-Peris M, Barrio E, Querol A. 2017. Effect of tem-
+perature on the prevalence of Saccharomyces non cerevisiae species
+against a S. cerevisiae wine strain in wine fermentation: competition,
+physiological ﬁtness, and in ﬂuence in ﬁnal wine composition. Frontiers
+Microbiol 8:150. https://doi.org/10.3389/fmicb.2017.00150.
+23. Varela C, Barker A, Tran T, Borneman A, Curtin C. 2017. Sensory pro ﬁle
+and volatile aroma composition of reduced alcohol merlot wines fer-
+mented with Metschnikowia pulcherrima and Saccharomyces uvarum. Int J
+Food Microbiol 252:1 –9. https://doi.org/10.1016/j.ijfoodmicro.2017.04
+.002
+.
+24. Tosi E, Azzolini M, Guzzo F, Zapparoli G. 2009. Evidence of different fermen-
+tation behaviours of two indigenous strains of Saccharomyces cerevisiae
+and Saccharomyces uvarum isolated from amarone wine. J Appl Microbiol
+107:210–218. https://doi.org/10.1111/j.1365-2672.2009.04196.x
+.
+25. Minebois R, Pérez-Torrado R, Querol A. 2020. Metabolome segregation of
+four strains of Saccharomyces cerevisiae, S. uvarum and S. kudriavzevii con-
+ducted under low temperature oenological conditions. Environ Microbiol
+22:3700–3721. https://doi.org/10.1111/1462-2920.15135
+.
+26. Wang Y, Zhang H, Lu X, Zong H, Zhuge B. 2019. Advances in 2-phenyle-
+thanol production from engineered microorganisms. Biotechnol Adv
+37:403–409. https://doi.org/10.1016/j.biotechadv.2019.02.005.
+27. Crépin L, Sanchez I, Nidelet T, Dequin S, Camarasa C. 2014. Ef ﬁcient am-
+monium uptake and mobilization of vacuolar arginine by Saccharomyces
+cerevisiae wine strains during wine fermentation. Microb Cell Fact 13:109.
+https://doi.org/10.1186/s12934-014-0109-0.
+28. Cramer AC, Vlassides S, Block DE. 2002. Kinetic model for nitrogen-limited
+wine fermentations. Biotechnol Bioeng 77:49–60. https://doi.org/10.1002/bit
+.10133.
+29. López-Malo M, Querol A, Guillamon JM. 2013. Metabolomic comparison
+of Saccharomyces cerevisiae and the cryotolerant species S. bayanus var.
+uvarum and S. kudriavzevii during wine fermentation at low temperature.
+PLoS One 8:e60135. https://doi.org/10.1371/journal.pone.0060135.
+30. Vázquez-Lima F, Silva P, Barreiro A, Martínez-Moreno R, Morales P, Quirós
+M, González R, Albiol J, Ferrer P. 2014. Use of chemostat cultures mimick-
+ing different phases of wine fermentations as a tool for quantitative phys-
+iological analysis. Microb Cell Fact 13:85. https://doi.org/10.1186/1475
+-2859-13-85
+.
+31. Crépin L, Nidelet T, Sanchez I, Dequin S, Camarasa C. 2012. Sequential use
+of nitrogen compounds by Saccharomyces cerevisiae during wine fer-
+mentation: a model based on kinetic and regulation characteristics of
+nitrogen permeases. Appl Environ Microbiol 78:8102 –8111. https://doi
+.org/10.1128/AEM.02294-12
+.
+32. Scott WT, Smid EJ, Notebaart RA, Block DE. 2020. Curation and analysis of
+a Saccharomyces cerevisiae genome-scale metabolic model for predicting
+production of sensory impact molecules under enological conditions.
+Processes 8:1195. https://doi.org/10.3390/pr8091195.
+33. Raghunathan AU, Pérez-Correa JR, Agosin E, Biegler LT. 2006. Parameter
+estimation in metabolic ﬂux balance models for batch fermentation —for-
+mulation & solution using differential variational inequalities (DVIs). Ann
+Oper Res 148:251–270. https://doi.org/10.1007/s10479-006-0086-8
+.
+3 4 . P i z a r r oF ,V a r e l aC ,M a r t a b i tC ,B r u n oC ,P é r e z - C o r r e aJ R ,A g o s i nE .2 0 0 7 .C o u -
+pling kinetic expressions and metabolic networks for predicting wine fermen-
+tations. Biotechnol Bioeng 98:986–998.https://doi.org/10.1002/bit.21494
+.
+35. Schulze U, Lidén G, Nielsen J, Villadsen J. 1996. Physiological effects of
+nitrogen starvation in an anaerobic batch culture of Saccharomyces cere-
+visiae. Microbiology (Reading) 142:2299 –2310. https://doi.org/10.1099/
+13500872-142-8-2299.
+36. Varela C, Pizarro F, Agosin E. 2004. Biomass content governs fermentation
+rate in nitrogen-deﬁcient wine musts. Appl Environ Microbiol 70:3392–3400.
+https://doi.org/10.1128/AEM.70.6.3392-3400.2004.
+37. Dikicioglu D, K ırdar B, Oliver SG. 2015. Biomass composition: the “ele-
+phant in the room” of metabolic modelling. Metabolomics 11:1690 –1701.
+https://doi.org/10.1007/s11306-015-0819-2.
+38. Minebois R, Pérez-Torrado R, Querol A. 2020. A time course metabolism
+comparison among Saccharomyces cerevisiae, S. uvarum and S. kudriavze-
+vii species in wine fermentation. Food Microbiol 90:103484. https://doi
+.org/10.1016/j.fm.2020.103484.
+39. Coulter AD, Godden PW, Pretorius IS. 2004. Succinic acid —how is it
+formed, what is its effect on titratable acidity, and what factors in ﬂuence
+its concentration in wine? Wine Ind J 19:16 –25.
+40. Camarasa C, Grivet J-P, Dequin S. 2003. Investigation by 13C-NMR and tricar-
+boxylic acid (TCA) deletion mutant analysis of pathways for succinate forma-
+tion in Saccharomyces cerevisiaeduring anaerobic fermentation. Microbiol-
+ogy (Reading) 149:2669–2678. https://doi.org/10.1099/mic.0.26007-0
+.
+41. Bach B, Sauvage F-X, Dequin S, Camarasa C. 2009. Role of g-aminobutyric
+acid as a source of nitrogen and succinate in wine. Am J Enol Vit
+60:508–516.
+42. Cao J, Barbosa JM, Singh N, Locy RD. 2013. GABA transaminases from Sac-
+charomyces cerevisiae and Arabidopsis thaliana complement function in
+cytosol and mitochondria. Yeast 30:279 –289. https://doi.org/10.1002/yea
+.2962
+.
+43. Mara P, Fragiadakis G, Gkountromichos F, Alexandraki D. 2018. The pleiotropic
+effects of the glutamate dehydrogenase (GDH) pathway inSaccharomyces cer-
+evisiae. Microb Cell Fact 17:170.https://doi.org/10.1186/s12934-018-1018-4.
+Dynamic Genome-Scale Modeling of Yeast Fermentation
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 17
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.
+
+
+--- PAGE 18 ---
+44. Coleman ST, Fang TK, Rovinsky SA, Turano FJ, Moye-Rowley WS. 2001.
+Expression of a glutamate decarboxylase homologue is required for nor-
+mal oxidative stress tolerance in Saccharomyces cerevisiae . J Biol Chem
+276:244–250. https://doi.org/10.1074/jbc.M007103200
+.
+45. Rossignol T, Dulau L, Julien A, Blondin B. 2003. Genome-wide monitoring
+of wine yeast gene expression during alcoholic fermentation. Yeast
+20:1369–1385. https://doi.org/10.1002/yea.1046.
+46. Liu H, Marsafari M, Deng L, Xu P. 2019. Understanding lipogenesis by
+dynamically pro ﬁling transcriptional activity of lipogenic promoters in
+Yarrowia lipolytica. Appl Microbiol Biotechnol 103:3167 –3179. https://doi
+.org/10.1007/s00253-019-09664-8.
+47. Mo _zejko-Ciesielska J, Kiewisz R. 2016. Bacterial polyhydroxyalkanoates:
+still fabulous? Microbiol Res 192:271 –282. https://doi.org/10.1016/j
+.micres.2016.07.010.
+48. Müller-Santos M, Koskimäki JJ, Alves LPS, de Souza EM, Jendrossek D,
+Pirttilä AM. 2021. The protective role of PHB and its degradation products
+against stress situations in bacteria. FEMS Microbiol Rev 45:fuaa058.
+https://doi.org/10.1093/femsre/fuaa058.
+49. Kelly JM, van Dyk SA, Dowling LK, Pickering GJ, Kemp B, Inglis DL. 2020.
+Ssaccharomyces uvarum yeast isolate consumes acetic acid during fermen-
+tation of high sugar juice and juice with high starting volatile acidity. Oeno
+One 54:199–211. https://doi.org/10.20870/oeno-one.2020.54.2.2594.
+50. Crépin L, Truong NM, Bloem A, Sanchez I, Dequin S, Camarasa C. 2017.
+Management of multiple nitrogen sources during wine fermentation by
+Saccharomyces cerevisiae . Appl Environ Microbiol 83:e02617-16. https://
+doi.org/10.1128/AEM.02617-16
+.
+51. Mendes-Ferreira A, del Olmo M, García-Martínez J, Jiménez-Martí E, Leão
+C, Mendes-Faia A, Pérez-Ortín JE. 2007. Saccharomyces cerevisiae signa-
+ture genes for predicting nitrogen de ﬁciency during alcoholic fermenta-
+tion. Appl Environ Microbiol 73:5363 –5369. https://doi.org/10.1128/AEM
+.01029-07.
+52. Martinez MJ, Roy S, Archuletta AB, Wentzell PD, Anna-Arriola SS,
+Rodriguez AL, Aragon AD, Quinones GA, Allen C, Werner-Washburne M.
+2004. Genomic analysis of stationary-phase and exit in Saccharomyces
+cerevisiae: gene expression and identi ﬁcation of novel essential genes.
+Mol Biol Cell 15:5295–5305. https://doi.org/10.1091/mbc.e03-11-0856
+.
+53. Shopska V, Denkova R, Lyubenova V, Kostov G. 2019. Kinetic characteris-
+tics of alcohol fermentation in brewing: state of art and control of the fer-
+mentation process, p 529–575. In Grumezescu A, Holban AM (ed), The sci-
+ence of beverages, vol 5. Fermented beverages. Elsevier, Duxford, United
+Kingdom.
+54. Yuan J, Chen X, Mishra P, Ching C-B. 2017. Metabolically engineered Sac-
+charomyces cerevisiae for enhanced isoamyl alcohol production. Appl
+Microbiol Biotechnol 101:465 –474. https://doi.org/10.1007/s00253-016
+-7970-1
+.
+55. Querol A, Barrio E, Huerta T, Ramón D. 1992. Molecular monitoring of wine
+fermentations conducted by active dry yeast strains. Appl Environ Micro-
+biol 58:2948–2953. https://doi.org/10.1128/aem.58.9.2948-2953.1992.
+56. Su Y, Seguinot P, Sanchez I, Ortiz-Julien A, Heras JM, Querol A, Camarasa C,
+Guillamón JM. 2020. Nitrogen sources preferences of non-Saccharomycesyeasts
+to sustain growth and fermentation under winemaking conditions. Food Micro-
+biol 85:103287.https://doi.org/10.1016/j.fm.2019.103287.
+57. Morard M, Macías LG, Adam AC, Lairón-Peris M, Pérez-Torrado R, Toft C,
+Barrio E. 2019. Aneuploidy and ethanol tolerance in Saccharomyces cerevi-
+siae. Front Genet 10:82. https://doi.org/10.3389/fgene.2019.00082.
+58. Otto TD, Dillon GP, Degrave WS, Berriman M. 2011. RATT: Rapid Annota-
+tion Transfer Tool. Nucleic Acids Res 39:e57. https://doi.org/10.1093/nar/
+gkq1268.
+59. Goffeau A, Barrell BG, Bussey H, Davis RW, Dujon B, Feldmann H, Galibert
+F, Hoheisel JD, Jacq C, Johnston M, Louis EJ, Mewes HW, Murakami Y,
+Philippsen P, Tettelin H, Oliver SG. 1996. Life with 6000 genes. Science
+274:546–567. https://doi.org/10.1126/science.274.5287.546.
+60. Varma A, Palsson BØ. 1994. Stoichiometric ﬂux balance models quantita-
+tively predict growth and metabolic by-product secretion in wild-type
+Escherichia coli W3110. Appl Environ Microbiol 60:3724 –3731. https://doi
+.org/10.1128/aem.60.10.3724-3731.1994.
+61. Orth JD, Thiele I, Palsson BØ. 2010. What is ﬂux balance analysis? Nat Bio-
+technol 28:245–248. https://doi.org/10.1038/nbt.1614.
+62. Machado D, Herrgård M. 2014. Systematic evaluation of methods for inte-
+gration of transcriptomic data into constraint-based models of metabo-
+lism. PLoS Comput Biol 10:e1003580. https://doi.org/10.1371/journal.pcbi
+.1003580.
+63. Walter E, Pronzato L. 1997. Identi ﬁcation of parametric models from ex-
+perimental data. Springer, Berlin, Germany.
+64. Balsa-Canto E, Alonso AA, Banga JR. 2010. An iterative identi ﬁcation pro-
+cedure for dynamic modeling of biochemical networks. BMC Syst Biol
+4:11. https://doi.org/10.1186/1752-0509-4-11.
+65. Breiman L. 1996. Bagging predictors. Mach Learn 24:123 –140. https://doi
+.org/10.1007/BF00058655.
+66. Bühlmann P. 2012. Bagging, boosting and ensemble methods, p
+985–1022. In Gentle JE, Härdle WK, Mori Y (ed), Handbook of computa-
+tional statistics: concepts and methods. Springer, Berlin, Germany.
+67. Efron B, Tibshirani R. 1988. An introduction to the bootstrap. Chapman &
+Hall, New York, NY.
+68. Balsa-Canto E, Henriques D, Gabor A, Banga JR. 2016. AMIGO2, a toolbox
+for dynamic modeling, optimization and control in systems biology. Bioin-
+formatics 32:3357–3359. https://doi.org/10.1093/bioinformatics/btw411.
+69. Schellenberger J, Que R, Fleming RMT, Thiele I, Orth JD, Feist AM, Zielinski
+DC, Bordbar A, Lewis NE, Rahmanian S, Kang J, Hyduke DR, Palsson BØ.
+2011. Quantitative prediction of cellular metabolism with constraint-
+based models: the COBRA toolbox v2.0. Nat Protoc 6:1290 –1307. https://
+doi.org/10.1038/nprot.2011.308
+.
+70. Egea JA, Vazquez E, Banga JR, Marti R. 2009. Improved scatter search for
+the global optimization of computationally expensive dynamic models. J
+Glob Optim 43:175–190. https://doi.org/10.1007/s10898-007-9172-y.
+71. Rojas V, Gil JV, Piñaga F, Manzanares P. 2001. Studies on acetate ester
+production by non-Saccharomyces wine yeasts. Int J Food Microbiol
+70:283–289. https://doi.org/10.1016/s0168-1605(01)00552-9.
+Henriques et al.
+July/August 2021 Volume 6 Issue 4 e00260-21 msystems.asm.org 18
+Downloaded from https://journals.asm.org/journal/msystems on 07 April 2022 by 132.174.251.250.

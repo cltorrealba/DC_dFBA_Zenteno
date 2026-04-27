@@ -1,73 +1,73 @@
 scenario,fase,t_h,fraction_of_optimum,rid,label,flux_ref,minimum,maximum,range
-baseline,lag,0.0,1.0,r_1765,ethyl acetate exchange,0.0,0.0,-4.6907727182712313e-14,-4.6907727182712313e-14
-baseline,lag,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,1.650326153618486e-14,1.650326153618486e-14
-baseline,lag,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-5.942328200891524e-14,-5.942328200891524e-14
-baseline,lag,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-9.406109608985029e-15,-9.406109608985029e-15
+baseline,lag,0.0,1.0,r_1765,ethyl acetate exchange,0.0,0.0,-2.3184523649260685e-13,-2.3184523649260685e-13
+baseline,lag,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,-6.007981411332991e-14,-6.007981411332991e-14
+baseline,lag,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-4.015394958942496e-14,-4.015394958942496e-14
+baseline,lag,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-2.5685340652648986e-14,-2.5685340652648986e-14
 baseline,lag,0.0,1.0,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 baseline,lag,0.0,1.0,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-constrained,lag,0.0,1.0,r_1765,ethyl acetate exchange,0.04209301304471871,0.04209301304465483,0.04209301304481484,1.6001089342410069e-13
-constrained,lag,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,2.0861178907146254e-14,2.0861178907146254e-14
-constrained,lag,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,2.579249274651815e-14,2.579249274651815e-14
-constrained,lag,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-4.273178764171512e-15,-4.273178764171512e-15
+constrained,lag,0.0,1.0,r_1765,ethyl acetate exchange,0.042226745763842416,0.0422267457638819,0.042226745763684584,-1.9731438705150595e-13
+constrained,lag,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,-3.6454832905832196e-14,-3.6454832905832196e-14
+constrained,lag,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-6.568078797926551e-13,-6.568078797926551e-13
+constrained,lag,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-4.19624340421609e-14,-4.19624340421609e-14
 constrained,lag,0.0,1.0,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 constrained,lag,0.0,1.0,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-baseline,lag,0.0,0.99,r_1765,ethyl acetate exchange,0.0,0.0,0.390982924200366,0.390982924200366
-baseline,lag,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.0749242333002854,0.0749242333002854
-baseline,lag,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05213105656005954,0.05213105656005954
-baseline,lag,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.07819658484010085,0.07819658484010085
+baseline,lag,0.0,0.99,r_1765,ethyl acetate exchange,0.0,0.0,0.3915712018112815,0.3915712018112815
+baseline,lag,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.07831424036227126,0.07831424036227126
+baseline,lag,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05290772069856466,0.05290772069856466
+baseline,lag,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.07831424036223894,0.07831424036223894
 baseline,lag,0.0,0.99,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 baseline,lag,0.0,0.99,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-constrained,lag,0.0,0.99,r_1765,ethyl acetate exchange,0.04209301304471871,0.0,0.4326550071144538,0.4326550071144538
-constrained,lag,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.0811864846240007,0.0811864846240007
-constrained,lag,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05768733428192434,0.05768733428192434
-constrained,lag,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.08653100142291703,0.08653100142291703
+constrained,lag,0.0,0.99,r_1765,ethyl acetate exchange,0.042226745763842416,0.0,0.43337568011755506,0.43337568011755506
+constrained,lag,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.08535773766561214,0.08535773766561214
+constrained,lag,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05848089817651858,0.05848089817651858
+constrained,lag,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.0866751360235112,0.0866751360235112
 constrained,lag,0.0,0.99,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 constrained,lag,0.0,0.99,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-baseline,exponencial,0.0,1.0,r_1765,ethyl acetate exchange,0.0,0.0,-4.6907727182712313e-14,-4.6907727182712313e-14
-baseline,exponencial,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,1.650326153618486e-14,1.650326153618486e-14
-baseline,exponencial,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-1.8763090873084797e-14,-1.8763090873084797e-14
-baseline,exponencial,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-3.066123054705975e-14,-3.066123054705975e-14
+baseline,exponencial,0.0,1.0,r_1765,ethyl acetate exchange,0.0,0.0,-2.3184523649260685e-13,-2.3184523649260685e-13
+baseline,exponencial,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,-6.007981411332991e-14,-6.007981411332991e-14
+baseline,exponencial,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-4.015394958942496e-14,-4.015394958942496e-14
+baseline,exponencial,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-4.636904729852141e-14,-4.636904729852141e-14
 baseline,exponencial,0.0,1.0,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 baseline,exponencial,0.0,1.0,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-constrained,exponencial,0.0,1.0,r_1765,ethyl acetate exchange,0.04209301304471871,0.04209301304465483,0.04209301304481484,1.6001089342410069e-13
-constrained,exponencial,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,9.691337621092779e-15,9.691337621092779e-15
-constrained,exponencial,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-1.1103705458366029e-14,-1.1103705458366029e-14
-constrained,exponencial,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,9.52210781316353e-15,9.52210781316353e-15
+constrained,exponencial,0.0,1.0,r_1765,ethyl acetate exchange,0.042226745763842416,0.0422267457638819,0.042226745763684584,-1.9731438705150595e-13
+constrained,exponencial,0.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,-3.6454832905832196e-14,-3.6454832905832196e-14
+constrained,exponencial,0.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-3.934510991958248e-14,-3.934510991958248e-14
+constrained,exponencial,0.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-8.258708385751007e-14,-8.258708385751007e-14
 constrained,exponencial,0.0,1.0,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 constrained,exponencial,0.0,1.0,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-baseline,exponencial,0.0,0.99,r_1765,ethyl acetate exchange,0.0,0.0,0.390982924200366,0.390982924200366
-baseline,exponencial,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.0749242333002854,0.0749242333002854
-baseline,exponencial,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05213105656005954,0.05213105656005954
-baseline,exponencial,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.07819658484010085,0.07819658484010085
+baseline,exponencial,0.0,0.99,r_1765,ethyl acetate exchange,0.0,0.0,0.3915712018112815,0.3915712018112815
+baseline,exponencial,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.07831424036227126,0.07831424036227126
+baseline,exponencial,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05290772069856466,0.05290772069856466
+baseline,exponencial,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.07831424036223894,0.07831424036223894
 baseline,exponencial,0.0,0.99,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 baseline,exponencial,0.0,0.99,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-constrained,exponencial,0.0,0.99,r_1765,ethyl acetate exchange,0.04209301304471871,0.0,0.4326550071144538,0.4326550071144538
-constrained,exponencial,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.0811864846240007,0.0811864846240007
-constrained,exponencial,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05768733428192434,0.05768733428192434
-constrained,exponencial,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.08653100142289134,0.08653100142289134
+constrained,exponencial,0.0,0.99,r_1765,ethyl acetate exchange,0.042226745763842416,0.0,0.43337568011755506,0.43337568011755506
+constrained,exponencial,0.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.08535773766571923,0.08535773766571923
+constrained,exponencial,0.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.05848089817640917,0.05848089817640917
+constrained,exponencial,0.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.0866751360235112,0.0866751360235112
 constrained,exponencial,0.0,0.99,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 constrained,exponencial,0.0,0.99,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-baseline,estacionaria,53.0,1.0,r_1765,ethyl acetate exchange,2.3269498501593122e-17,0.0,-5.174302158775703e-16,-5.174302158775703e-16
-baseline,estacionaria,53.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,-4.585260117830477e-15,-4.585260117830477e-15
-baseline,estacionaria,53.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-1.5756282388717493e-15,-1.5756282388717493e-15
-baseline,estacionaria,53.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-2.7352782756535153e-15,-2.7352782756535153e-15
+baseline,estacionaria,53.0,1.0,r_1765,ethyl acetate exchange,0.0,0.0,2.8876349402993556e-15,2.8876349402993556e-15
+baseline,estacionaria,53.0,1.0,r_1867,isobutyl acetate exchange,0.0,0.0,4.428499970668244e-15,4.428499970668244e-15
+baseline,estacionaria,53.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,6.757390282953771e-16,6.757390282953771e-16
+baseline,estacionaria,53.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,-2.194546280965428e-15,-2.194546280965428e-15
 baseline,estacionaria,53.0,1.0,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 baseline,estacionaria,53.0,1.0,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-constrained,estacionaria,53.0,1.0,r_1765,ethyl acetate exchange,0.488256441585622,0.4882564415855933,0.4882564415856254,3.214095656289828e-14
-constrained,estacionaria,53.0,1.0,r_1867,isobutyl acetate exchange,0.0,-1.2792670427889593e-15,-1.8959222013992348e-14,-1.767995497120339e-14
-constrained,estacionaria,53.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,6.042527373885497e-15,6.042527373885497e-15
-constrained,estacionaria,53.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,7.708634077808064e-14,7.708634077808064e-14
+constrained,estacionaria,53.0,1.0,r_1765,ethyl acetate exchange,0.4872628449558667,0.4872628449558802,0.48726284495586447,-1.5709655798445965e-14
+constrained,estacionaria,53.0,1.0,r_1867,isobutyl acetate exchange,0.0,-3.990580611001929e-15,1.3540474112967499e-14,1.753105472396943e-14
+constrained,estacionaria,53.0,1.0,r_1862,isoamyl acetate exchange,0.0,0.0,-4.870754689412148e-16,-4.870754689412148e-16
+constrained,estacionaria,53.0,1.0,r_2000,phenethyl acetate exchange,0.0,0.0,5.158919356521241e-15,5.158919356521241e-15
 constrained,estacionaria,53.0,1.0,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 constrained,estacionaria,53.0,1.0,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-baseline,estacionaria,53.0,0.99,r_1765,ethyl acetate exchange,2.3269498501593122e-17,0.0,0.01692086167082756,0.01692086167082756
-baseline,estacionaria,53.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.010243380152935163,0.010243380152935163
-baseline,estacionaria,53.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.00579986324438241,0.00579986324438241
-baseline,estacionaria,53.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.007067649434224253,0.007067649434224253
+baseline,estacionaria,53.0,0.99,r_1765,ethyl acetate exchange,0.0,0.0,0.01688840316004442,0.01688840316004442
+baseline,estacionaria,53.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.010226654798052065,0.010226654798052065
+baseline,estacionaria,53.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.00579029699445076,0.00579029699445076
+baseline,estacionaria,53.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.007058911287445965,0.007058911287445965
 baseline,estacionaria,53.0,0.99,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 baseline,estacionaria,53.0,0.99,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0
-constrained,estacionaria,53.0,0.99,r_1765,ethyl acetate exchange,0.488256441585622,0.46662116180331564,0.5094913594694757,0.042870197666160015
-constrained,estacionaria,53.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.017177460903062877,0.017177460903062877
-constrained,estacionaria,53.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.006450547766403787,0.006450547766403787
-constrained,estacionaria,53.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.008696833326146501,0.008696833326146501
+constrained,estacionaria,53.0,0.99,r_1765,ethyl acetate exchange,0.4872628449558667,0.46566025694711416,0.5084557789328714,0.04279552198575726
+constrained,estacionaria,53.0,0.99,r_1867,isobutyl acetate exchange,0.0,0.0,0.017149917684869696,0.017149917684869696
+constrained,estacionaria,53.0,0.99,r_1862,isoamyl acetate exchange,0.0,0.0,0.0064389297517645485,0.0064389297517645485
+constrained,estacionaria,53.0,0.99,r_2000,phenethyl acetate exchange,0.0,0.0,0.008686327405075347,0.008686327405075347
 constrained,estacionaria,53.0,0.99,r_4647,hexyl acetate exchange,0.0,0.0,0.0,0.0
 constrained,estacionaria,53.0,0.99,r_4739,benzyl-acetate exchange,0.0,0.0,0.0,0.0

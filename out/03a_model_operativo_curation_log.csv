@@ -1,0 +1,18 @@
+group,rid,name,note,status,old_lb,old_ub,new_lb,new_ub
+structural_leak_closed,r_4501,turanose exchange,Cierre de leaks Caso C,updated,0.0,1000.0,0.0,0.0
+structural_leak_closed,r_1650,trehalose exchange,Cierre de leaks Caso C,updated,0.0,1000.0,0.0,0.0
+structural_leak_closed,r_4502,D-glucose 6-phosphate exchange,Cierre de leaks Caso C,updated,0.0,1000.0,0.0,0.0
+structural_leak_closed,r_4538,6-phospho-D-gluconate exchange,Cierre de leaks Caso C,updated,0.0,1000.0,0.0,0.0
+alt_sink_manual_bounds,r_1549,"(R,R)-2,3-butanediol exchange",Ajuste de sumideros alternativos,updated,0.0,1000.0,0.0,0.12
+alt_sink_manual_bounds,r_4659,propanol exchange,Ajuste de sumideros alternativos,updated,0.0,1000.0,0.0,0.02
+alt_sink_manual_bounds,r_4731,diethyl-succinate exchange,Ajuste de sumideros alternativos,updated,0.0,1000.0,0.0,0.0003
+alt_sink_manual_bounds,r_4737,ethyl-pyruvate exchange,Ajuste de sumideros alternativos,updated,0.0,1000.0,0.0,3e-06
+alt_sink_manual_bounds,r_1989,oxaloacetate(2-) exchange,Ajuste de sumideros alternativos,updated,0.0,1000.0,0.0,0.0
+ethanol_open,r_1761,ethanol exchange,Etanol abierto para secreción,updated,0.0,1000.0,0.0,1000.0
+atpm_manual_bounds,r_4046,non-growth associated maintenance reaction,ATPM fijo,updated,0.7,0.7,0.7,0.7
+sterol_excretion_closed,r_1753,episterol exchange,Cerrar excreción de esteroles; uptake se conserva si lb<0.,updated,0.0,1000.0,0.0,0.0
+sterol_excretion_closed,r_1757,ergosterol exchange,Cerrar excreción de esteroles; uptake se conserva si lb<0.,updated,-1000.0,0.0,-1000.0,0.0
+sterol_excretion_closed,r_1788,fecosterol exchange,Cerrar excreción de esteroles; uptake se conserva si lb<0.,updated,0.0,1000.0,0.0,0.0
+sterol_excretion_closed,r_1915,lanosterol exchange,Cerrar excreción de esteroles; uptake se conserva si lb<0.,updated,-1000.0,0.0,-1000.0,0.0
+sterol_excretion_closed,r_2106,zymosterol exchange,Cerrar excreción de esteroles; uptake se conserva si lb<0.,updated,-1000.0,0.0,-1000.0,0.0
+sterol_excretion_closed,r_2134,14-demethyllanosterol exchange,Cerrar excreción de esteroles; uptake se conserva si lb<0.,updated,-1000.0,0.0,-1000.0,0.0

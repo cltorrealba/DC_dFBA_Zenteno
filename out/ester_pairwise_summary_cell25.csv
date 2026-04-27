@@ -1,7 +1,7 @@
 rid,label,in_pairwise_active,final_baseline_mg_L,final_pairwise_mg_L,delta_mg_L
-r_2000,phenethyl acetate exchange,True,0.0,7.702202554630105,7.702202554630105
-r_1867,isobutyl acetate exchange,True,0.0,0.46006615854700605,0.46006615854700605
-r_1862,isoamyl acetate exchange,True,0.0,0.2700736051371516,0.2700736051371516
+r_2000,phenethyl acetate exchange,True,0.0,8.148264871854964,8.148264871854964
+r_1867,isobutyl acetate exchange,True,0.0,1.2900484445930944,1.2900484445930944
+r_1862,isoamyl acetate exchange,True,0.0,0.4028294613799022,0.4028294613799022
 r_1765,ethyl acetate exchange,False,0.0,0.0,0.0
 r_4647,hexyl acetate exchange,False,0.0,0.0,0.0
 r_4739,benzyl-acetate exchange,False,0.0,0.0,0.0

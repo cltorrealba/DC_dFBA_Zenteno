@@ -18,7 +18,10 @@
       "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/get_cell_ids.py)",
       "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/get_nb1_cell44.py)",
       "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/get_cell45.py)",
-      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/verify_patch.py)"
+      "Bash(/c/Users/ctorrealba/AppData/Local/anaconda3/envs/Data_Science/python.exe /tmp/verify_patch.py)",
+      "Bash(python -c ' *)",
+      "Bash(cat .vscode/settings.json)",
+      "Bash(ls .venv)"
     ]
   }
 }
