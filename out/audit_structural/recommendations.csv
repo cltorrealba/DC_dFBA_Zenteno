@@ -1,0 +1,2 @@
+state_id,category,status,priority,recommendation
+all,global,PASS,low,Sin FAIL estructurales detectados en checks integrados.

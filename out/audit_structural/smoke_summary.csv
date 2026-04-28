@@ -1,0 +1,10 @@
+check,status,message,simulation_valid
+trajectory_not_empty,PASS,trayectoria de estados no vacía,True
+trajectory_no_nan,PASS,sin NaN/inf en trayectoria numérica,True
+no_severe_negative_states,PASS,mínimo de estados=0.0,True
+solver_majority_optimal,PASS,solver_ok_ratio=1.0,True
+no_product_forcing_strict,PASS,sin forcing de productos en strict,True
+no_turnover_external,PASS,turnover no abre exchanges externos,True
+no_n_external_violation,PASS,sin violación de uptake externo de N,True
+phases_registered,PASS,fases registradas,True
+snapshot_logs_available,PASS,logs de snapshots disponibles,True

@@ -1,0 +1,181 @@
+state_id,audit_name,product,reaction_id,mode,lower_bound,upper_bound,bound_forcing_detected,solver_constraint_forcing_detected,forcing_flag_detected,constraint_names,status,message
+initial_high_sugar_high_n,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+initial_high_sugar_high_n,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+initial_high_sugar_high_n,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+initial_high_sugar_high_n,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+initial_high_sugar_high_n,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+lag_osmotic,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+lag_osmotic,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+lag_osmotic,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+lag_osmotic,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+growth_n_available,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+growth_n_available,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+growth_n_available,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+growth_n_available,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+n_limited_sugar_available,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+n_limited_sugar_available,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+n_limited_sugar_available,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+n_limited_sugar_available,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+stationary_n_depleted,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+stationary_n_depleted,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+stationary_n_depleted,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+stationary_n_depleted,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+glucose_depleted_fructose_available,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+glucose_depleted_fructose_available,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+glucose_depleted_fructose_available,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+glucose_depleted_fructose_available,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+hexoses_depleted,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+hexoses_depleted,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+hexoses_depleted,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+hexoses_depleted,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+protein_pool_depleted,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+protein_pool_depleted,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+protein_pool_depleted,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+protein_pool_depleted,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,glycerol,r_1808,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+ethanol_stress_high,product_forcing,pyruvate,r_2033,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+ethanol_stress_high,product_forcing,acetaldehyde,r_1631,strict,0.0,1000.0,False,False,False,,PASS,defaults legacy activos pero no aplicados por politica efectiva strict
+ethanol_stress_high,product_forcing,acetate,r_1634,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,succinate,r_2056,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,butanediol_23,r_1549,strict,0.0,0.12,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,higher_alcohols,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,esters,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,ethanol,r_1761,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,phenethyl_acetate_proxy,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,benzyl_acetate_proxy,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,ethyl_acetate,r_1765,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,isobutyl_acetate,r_1867,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,isoamyl_acetate,r_1862,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,phenethyl_acetate,r_2000,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,hexyl_acetate,r_4647,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,benzyl_acetate,r_4739,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,ethyl_hexanoate,r_4644,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,octanoate_proxy,r_1984,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict
+ethanol_stress_high,product_forcing,decanoate_proxy,r_1727,strict,0.0,1000.0,False,False,False,,PASS,sin forcing de producto en strict

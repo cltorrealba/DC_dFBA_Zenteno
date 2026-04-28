@@ -1,0 +1,10 @@
+state_id,t,expected_regime,notes,snapshot_valid,phase_label,solver_status,status,message,objective_id,bound_change_log_n,product_forcing_fail_count,nitrogen_fail_count,gam_fail_count,turnover_fail_count,mass_status
+initial_high_sugar_high_n,0.0,initial_replete,Azúcares y N altos; control basal de factibilidad.,True,F0_LAG_OSMO,optimal,PASS,snapshot auditado,r_2111,55,0,0,0,0,WARN
+lag_osmotic,0.0,F0_LAG_OSMO_or_initial_equivalent,Estado inicial osmótico; debe activar política lag si clasifica F0.,True,F0_LAG_OSMO,optimal,PASS,snapshot auditado,r_2111,55,0,0,0,0,WARN
+growth_n_available,8.0,growth_n_available,Debe permitir crecimiento si la fase no es lag.,True,F1_EXP_GROWTH,optimal,PASS,snapshot auditado,r_2111,54,0,0,0,0,WARN
+n_limited_sugar_available,24.0,nitrogen_limited,N casi agotado con hexosas disponibles; NCR no debe reabrir fuentes externas.,True,F2_N_LIMITED_CARB_ACC,optimal,PASS,snapshot auditado,r_4046,65,0,0,0,0,WARN
+stationary_n_depleted,48.0,stationary_n_depleted,N externo agotado; no debe existir uptake externo de N.,True,F2_N_LIMITED_CARB_ACC,optimal,PASS,snapshot auditado,r_4046,65,0,0,0,0,WARN
+glucose_depleted_fructose_available,60.0,glucose_depleted,Glucosa agotada; no debe haber uptake de glucosa.,True,F4_DECAY,optimal,PASS,snapshot auditado,r_4046,65,0,0,0,0,WARN
+hexoses_depleted,96.0,hexoses_depleted,Glucosa/fructosa agotadas; no debe haber uptake de hexosas.,False,F4_DECAY,,WARN,snapshot resuelto con status no aceptado: None,r_4046,65,0,0,0,0,WARN
+protein_pool_depleted,72.0,protein_pool_depleted,cProt=0; turnover efectivo debe ser cero.,True,F4_DECAY,optimal,PASS,snapshot auditado,r_4046,65,0,0,0,0,WARN
+ethanol_stress_high,84.0,ethanol_stress_high,Estrés por etanol; útil para revisar mantenimiento/GAM/turnover sin forcing de productos.,True,F4_DECAY,optimal,PASS,snapshot auditado,r_4046,65,0,0,0,0,WARN

@@ -1,0 +1,2 @@
+state_id,requested_force_phase,phase,biomass_rxn_id,biomass_lb,biomass_ub,biomass_flux,mu_lag_max,solver_status,objective_policy_primary,phase_growth_policy_applied,lag_biomass_objective_removed,status,message
+lag_osmotic,F0_LAG_OSMO,F0_LAG_OSMO,r_2111,0.0,0.0001,0.0,0.0001,optimal,r_4046,True,True,PASS,política lag consistente

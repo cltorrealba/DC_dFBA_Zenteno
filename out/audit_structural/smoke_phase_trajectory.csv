@@ -1,0 +1,14 @@
+time,phase_label,phase_reason,transition_detected,legacy_mode_assigned,future_phase_objective_hint,solver_status,snapshot_valid
+0.0,F0_LAG_OSMO,ventana temprana con hexosas altas: adaptación lag/osmótica,False,BIOMASS,biomass_with_osmotic_adaptation_secondary_reserved,optimal,True
+2.0,F0_LAG_OSMO,ventana temprana con hexosas altas: adaptación lag/osmótica,False,BIOMASS,biomass_with_osmotic_adaptation_secondary_reserved,optimal,True
+2.25,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,True,BIOMASS,biomass_growth_primary,optimal,True
+2.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+3.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+5.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+7.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+9.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+11.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+13.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+15.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+17.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True
+19.75,F1_EXP_GROWTH,crecimiento activo con nitrógeno efectivo disponible,False,BIOMASS,biomass_growth_primary,optimal,True

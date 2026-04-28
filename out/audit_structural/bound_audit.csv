@@ -1,0 +1,10 @@
+state_id,audit_name,status,message
+initial_high_sugar_high_n,bounds,PASS,sin inconsistencias detectadas
+lag_osmotic,bounds,PASS,sin inconsistencias detectadas
+growth_n_available,bounds,PASS,sin inconsistencias detectadas
+n_limited_sugar_available,bounds,PASS,sin inconsistencias detectadas
+stationary_n_depleted,bounds,PASS,sin inconsistencias detectadas
+glucose_depleted_fructose_available,bounds,PASS,sin inconsistencias detectadas
+hexoses_depleted,bounds,PASS,sin inconsistencias detectadas
+protein_pool_depleted,bounds,PASS,sin inconsistencias detectadas
+ethanol_stress_high,bounds,PASS,sin inconsistencias detectadas
