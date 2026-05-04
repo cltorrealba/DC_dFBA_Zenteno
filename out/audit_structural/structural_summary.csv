@@ -1,6 +1,6 @@
 category,PASS,WARN,FAIL,status
 config,11,2,0,WARN
-snapshots,8,1,0,WARN
+snapshots,9,0,0,PASS
 phase_policy,1,0,0,PASS
 bounds,9,0,0,PASS
 products,180,0,0,PASS

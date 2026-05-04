@@ -6,7 +6,7 @@ phase_policy,phase_audit_df,1,0,0,PASS,low,Política lag/no crecimiento.
 nitrogen,nitrogen_audit_df,207,0,0,PASS,low,N externo seguro y NCR sin reaperturas.
 gam,gam_audit_df,45,0,0,PASS,low,GAM dinámico limitado a hidrólisis ATP.
 turnover,turnover_audit_df,0,9,0,WARN,medium,Revisar turnover: Turnover interno/macro-auditado y cProt debitado.
-solver,snapshot_audit_df,8,1,0,WARN,medium,Revisar solver: Factibilidad y estado del solver por snapshot.
+solver,snapshot_audit_df,9,0,0,PASS,low,Factibilidad y estado del solver por snapshot.
 mass_balance,mass_audit_df,0,9,0,WARN,medium,Revisar mass_balance: Balance C/N macro aproximado.
 dynamic_smoke_test,smoke_summary_df,9,0,0,PASS,low,Smoke-test dinámico mínimo.
-global,overall_readiness,6,21,0,B,medium,Apto para simulación exploratoria con advertencias; no calibrar aún sin revisar WARN.
+global,overall_readiness,7,20,0,B,medium,Apto para simulación exploratoria con advertencias; no calibrar aún sin revisar WARN.
