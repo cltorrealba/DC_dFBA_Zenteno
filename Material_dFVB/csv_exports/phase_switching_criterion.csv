@@ -1,2 +1,0 @@
-criterion,N_TOTAL_DEPLETION_THRESHOLD_gN_L,formula,MW_N_g_per_mmol,if_true,if_false
-N_total > N_TOTAL_DEPLETION_THRESHOLD,0.001,N_total = N_free + MW_N * sum(AA_i),0.014007,BIOMASS,TURNOVER_ATPM

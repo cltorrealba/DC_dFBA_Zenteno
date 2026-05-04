@@ -1,7 +1,0 @@
-phase,step,description,objective_reaction,direction,constraint
-BIOMASS,A,Maximize growth rate (mu),r_2111,max,none
-BIOMASS,B,Lock growth: mu >= 0.999 * mu_star,r_2111,constraint,lb(r_2111) = 0.999 * mu_star
-BIOMASS,C,Secondary: maximize AA uptake (w=1.0) + pFBA,AA_precursors (negative sum),max,pFBA at fraction_of_optimum=1.0
-TURNOVER_ATPM,A,Close growth: r_2111 lb=ub=0,r_2111,fix,"lb=0, ub=0"
-TURNOVER_ATPM,B,"Maximize protein production, lock at 0.9*vprot_star",r_4047,max then lock,lb(r_4047) = 0.9 * vprot_star
-TURNOVER_ATPM,C,Maximize ATPM + pFBA,r_4046,max,pFBA at fraction_of_optimum=1.0

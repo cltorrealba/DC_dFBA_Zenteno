@@ -1,2 +1,0 @@
-n_snapshots,n_active_redox,n_cap_applied,n_cap_relaxed,n_cap_omitted,iso_ac_final_baseline_mg_L,iso_ac_final_pairwise_mg_L,iso_ac_final_redox_mg_L,delta_redox_vs_baseline_mg_L,ETHANOL_CAP_FACTOR,ETHANOL_CAP_ABS,PHI_PAIR_REFERENCE,YAN_LOW_THRESHOLD_GN_L,MU_LOW_THRESHOLD_HINV,SUGAR_HIGH_THRESHOLD_G_L
-72,72,72,0,0,0.0,0.2700759701119255,0.04974932882937043,0.04974932882937043,0.85,5.0,0.08,0.005,0.03,10.0
